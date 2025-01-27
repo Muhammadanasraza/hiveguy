@@ -1,9 +1,15 @@
 import React from 'react'
+import Footer from '../Components/Footer';
+import Header from '../Components/Header';
+
+import Hero from '../Components/Hero';
 
 function Home() {
     return (
         <>
-        <h1>This is Home page</h1>
+           
+           
+            <Hero/>
         </>
     )
 }
