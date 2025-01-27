@@ -4,7 +4,7 @@ import { IoReturnUpBackSharp } from "react-icons/io5";
 
 const Features = () => {
   return (
-    <div className="flex flex-wrap justify-around items-center py-8 gap-6 lg:gap-0">
+    <div className="flex flex-wrap justify-around items-center pt-8 gap-6 lg:gap-0">
       {/* Free Returns */}
       <div className="flex items-center space-x-3 max-w-xs">
         <div className="bg-[#31035D] p-3 rounded-full flex-shrink-0">

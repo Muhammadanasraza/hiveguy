@@ -12,11 +12,11 @@ const Header = () => {
 
   return (
     <header className="bg-gradient-to-r from-[#F81972] to-[#2F155B] text-white">
-      <div className="text-center border-b-1 border-b-white p-6">
+      <div className="text-center border-b-1 border-b-white p-3">
         <span className="text-lg">Welcome to HiveGY online eCommerce store.</span>
       </div>
       {/* Top Section */}
-      <div className="container mx-auto p-6 sm:p-8 gap-5 border-b-1 border-b-black flex flex-col sm:flex-row items-center justify-between">
+      <div className="container mx-auto px-6 py-3 sm:px-4 gap-5 border-b-1 border-b-black flex flex-col sm:flex-row items-center justify-between">
         {/* Logo */}
         <div className="bg-white rounded-full p-2 mb-4 sm:mb-0">
           <img src="https://via.placeholder.com/50" alt="Logo" className="w-8 h-8" />

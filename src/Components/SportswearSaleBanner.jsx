@@ -6,7 +6,7 @@ import { GoArrowLeft } from "react-icons/go";
 const SportswearSaleBanner = () => {
   return (
     <div
-      className="relative mx-5 my-10 rounded-xl px-6 md:px-12  flex flex-col md:flex-row items-center justify-between"
+      className="relative mx-5 mt-6 rounded-xl px-6 md:px-12  flex flex-col md:flex-row items-center justify-between"
       style={{
         background: "linear-gradient(98.75deg, #2F015B 5.99%, #5B258E 89.58%)",
       }}
