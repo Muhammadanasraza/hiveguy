@@ -2,6 +2,7 @@ import React from 'react'
 import Features from '../Components/Feature';
 import SportswearSaleBanner from '../Components/SportswearSaleBanner';
 import FlashSale from './FlashSale';
+import ShopByCategory from './CategarySection';
 
 function Hero() {
     return (
@@ -9,6 +10,7 @@ function Hero() {
             <Features />
             <SportswearSaleBanner />
             <FlashSale/>
+            <ShopByCategory/>
         </div>
     )
 }
