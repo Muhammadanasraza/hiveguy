@@ -2,7 +2,7 @@ import png1 from '../assets/images/category/1.png'
 import png2 from '../assets/images/category/2.png'
 import png6 from '../assets/images/category/6.png'
 import png4 from '../assets/images/category/4.png'
-import {bannerGif} from "../assets/images/bannerGif.gif"
+import bannerGif from "../assets/images/bannerGif.gif"
 
 
 export default function ShopByCategory() {
