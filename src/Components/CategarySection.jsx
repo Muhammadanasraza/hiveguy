@@ -2,7 +2,7 @@ import png1 from '../assets/images/category/1.png'
 import png2 from '../assets/images/category/2.png'
 import png6 from '../assets/images/category/6.png'
 import png4 from '../assets/images/category/4.png'
-import bannerGif from "../assets/images/bannerGif.gif"
+// import bannerGif from "../assets/images/bannerGif.gif"
 
 
 export default function ShopByCategory() {
@@ -32,7 +32,7 @@ export default function ShopByCategory() {
         </div>
 
         <div className='mt-10'>
-            <img className='w-[1300px]  rounded-2xl shadow-xl' src={bannerGif} alt="banner" />
+            <img className='w-[1300px]  rounded-2xl shadow-xl' src={png1} alt="banner" />
         </div>
       </div>
     );
