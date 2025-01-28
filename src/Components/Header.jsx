@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { TfiMenuAlt } from "react-icons/tfi";
+import DropDown from "./ui/DropDown";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,18 +13,18 @@ const Header = () => {
 
   return (
     <header className="bg-gradient-to-r from-[#F81972] to-[#2F155B] text-white">
-      <div className="text-center border-b-1 border-b-white p-3">
+      <div className="text-center border-b-1 border-b-white p-1">
         <span className="text-lg">Welcome to HiveGY online eCommerce store.</span>
       </div>
       {/* Top Section */}
-      <div className="container mx-auto px-6 py-3 sm:px-4 gap-5 border-b-1 border-b-black flex flex-col sm:flex-row items-center justify-between">
+      <div className="container mx-auto px-6 py-1 sm:px-4 gap-5 border-b-1 border-b-black flex flex-col sm:flex-row items-center justify-between">
         {/* Logo */}
         <div className="bg-white rounded-full p-2 mb-4 sm:mb-0">
           <img src="https://via.placeholder.com/50" alt="Logo" className="w-8 h-8" />
         </div>
 
         {/* Search Bar */}
-        <div className="flex flex-col sm:flex-row gap-4 mx-4 w-full sm:w-auto">
+        <div className="flex flex-col sm:flex-row gap-2  w-full sm:w-auto">
           <input
             type="text"
             placeholder="Search in HiveGY"
@@ -63,36 +64,10 @@ const Header = () => {
       </div>
 
       {/* Bottom Links */}
-      <div className="bg-gradient-to-r from-[#98164a] to-[#250b56] py-2">
+      <div className="bg-gradient-to-r from-[#98164a] to-[#250b56] py-1">
         <div className="container mx-auto px-6 sm:px-13 flex flex-col sm:flex-row items-center justify-between">
           {/* Category Dropdown */}
-          <div className="relative mb-4 sm:mb-0">
-            <button
-              onClick={toggleDropdown}
-              className="flex items-center space-x-8 bg-gray-300 text-black px-5 py-2 rounded-4xl"
-            >
-              <TfiMenuAlt />
-              <div className="flex gap-2 items-center">
-                <span>Category</span>
-                <RiArrowDropDownLine />
-              </div>
-            </button>
-
-            {/* Dropdown Menu */}
-            {isOpen && (
-              <div className="absolute right-0 mt-2 w-48 bg-white text-black rounded-md shadow-lg">
-                <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-100">
-                  Profile
-                </a>
-                <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-100">
-                  Settings
-                </a>
-                <a href="#" className="block px-4 py-2 text-sm hover:bg-gray-100">
-                  Logout
-                </a>
-              </div>
-            )}
-          </div>
+          <DropDown/>
 
           {/* Bottom Links */}
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 text-sm text-center sm:text-left">

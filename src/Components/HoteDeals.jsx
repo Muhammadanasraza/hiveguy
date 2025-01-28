@@ -54,7 +54,7 @@ const HotDeals = () => {
                             alt="Laptop"
                             className="w-full h-48 object-cover opacity-100"
                         />
-                        <div className="absolute bottom-4 left-4 text-xl font-bold">Laptops</div>
+                        <div className=" bottom-4 left-4 text-xl font-bold"></div>
                     </div>
                 </div>
             </div>
