@@ -17,7 +17,7 @@ export default function ShopByCategory() {
   
     return (
       <div className="text-center  py-8">
-        <h2 className="text-xl pl-3 text-left font-bold mb-6">Shop by Category</h2>
+        <h2 className="text-3xl pl-3 text-left font-bold mb-6">Shop by Category</h2>
         <div className="grid  grid-cols-4 md:grid-cols-6 max-sm:grid-cols-2 lg:grid-cols-6 justify-between gap-8">
           {categories.map((category, index) => (
             <div key={index} className="flex flex-col items-center">
