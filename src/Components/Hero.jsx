@@ -3,6 +3,9 @@ import Features from '../Components/Feature';
 import SportswearSaleBanner from '../Components/SportswearSaleBanner';
 import FlashSale from './FlashSale';
 import ShopByCategory from './CategarySection';
+import TopSellers from './TopSellerSection';
+import HotDeals from './HoteDeals';
+import Banner from './Banner';
 
 function Hero() {
     return (
@@ -11,6 +14,9 @@ function Hero() {
             <SportswearSaleBanner />
             <FlashSale/>
             <ShopByCategory/>
+            <TopSellers/>
+            <HotDeals/>
+            <Banner/>
         </div>
     )
 }
