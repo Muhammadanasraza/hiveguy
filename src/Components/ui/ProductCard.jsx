@@ -1,29 +1,32 @@
-import keybord from '../../assets/images/keyboard.png'
 
-export default function ProductCard() {
-    return (
-      <div className="  rounded-lg p-3 shadow-md w-[200px] h-[220px]">
-        <img
-          src={keybord}
-          alt="RGB Keyboard"
-          className="w-[180px] h-[90px] rounded-md"
-        />
-        <div className="mt-3">
-          <h3 className="text-[11px] font-light leading-[17px] text-left font-poppins">
-            NERV Watch 2 Pro - 2.01" Amoled Display SmartWatch
-          </h3>
-          <div className="flex items-center mt-1">
-            <span className="text-[11px] font-medium leading-[17px] text-left font-poppins">GYD</span>
-            <span className="text-sm font-bold ml-2">2,903</span>
-            <span className="line-through text-gray-500 ml-2">GYD2,903</span>
-            <span className="text-red-500 ml-1">-75%</span>
-          </div>
-          <div className="w-[180px] h-[7px] bg-gray-200 rounded-lg mt-2">
-            <div className="bg-blue-600 h-[6px] rounded-lg" style={{ width: '75%' }}></div>
-          </div>
-          <p className="text-red-500 text-xs mt-2">100 in Stocks</p>
+import { IoIosStar } from "react-icons/io";
+
+export default function ProductCard({ title, price, rating, Sold, image, badges }) {
+  return (
+    <div className="bg-white p-4 mx-1 rounded-lg shadow hover:shadow-md transition-shadow">
+      <div className="relative mb-4">
+        <img src={image} alt={title} className="object-contain mx-auto" />
+      </div>
+      <div className="space-y-2">
+        <h3 className="text-sm text-gray-800 line-clamp-2">{title}</h3>
+        <div className="flex items-center gap-1">
+          {Array.from({ length: 5 }).map((_, i) => (
+            <IoIosStar key={i} className={`w-4 h-4 ${i < rating ? "text-yellow-400 fill-current" : "text-gray-300"}`} />
+          ))}
+          <span className="text-xs text-gray-500">Sold ({Sold})</span>
+        </div>
+        <div className="flex items-center gap-2">
+          {badges.map((badge, index) => (
+            <span key={index} className="px-2 py-1 text-xs rounded-full bg-blue-100 text-blue-800">
+              {badge}
+            </span>
+          ))}
+        </div>
+        <div className="flex items-baseline gap-2">
+          <span className="text-lg font-semibold">GYD {price.toLocaleString()}</span>
+          <span className="text-sm text-gray-500 line-through">GYD {(price * 1.2).toLocaleString()}</span>
         </div>
       </div>
-    );
-  }
-  
+    </div>
+  );
+}

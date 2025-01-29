@@ -3,6 +3,7 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { TfiMenuAlt } from "react-icons/tfi";
 import DropDown from "./ui/DropDown";
+import { CgProfile } from "react-icons/cg";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -48,7 +49,8 @@ const Header = () => {
               <option>English-UK</option>
             </select>
           </div>
-          <a href="#" className="hover:underline">
+                            <i className=" material-icons"><CgProfile/></i>
+          <a href="/authpage" className="hover:underline">
             Login
           </a>
           <a href="#" className="hover:underline">

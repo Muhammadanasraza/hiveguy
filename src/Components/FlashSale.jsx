@@ -1,11 +1,12 @@
 import React from "react";
 import laptop from '../assets/images/laptop.png';
 import Button from "./ui/button";
-import ProductCard from "./ui/ProductCard";
+import keyboard from '../assets/images/keyboard.png'
+// import ProductCard from "./ui/ProductCard";
 
 const FlashSale = () => {
     return (
-        <div className="flex flex-col md:flex-row gap-4 px-3 py-10">
+        <div className="flex flex-col md:flex-row mt-10 rounded-4xl bg-white gap-4 px-3 py-10">
             {/* Flash Sale Section */}
             <div className="w-full md:w-2/5 bg-white shadow-md rounded-lg">
                 <h2 className="text-white p-3 bg-gradient-to-r from-[#F81972] to-[#2F155B] font-bold text-2xl mb-4">
@@ -84,7 +85,28 @@ const FlashSale = () => {
                 {/* Products */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-4">
                     {[...Array(6)].map((_, i) => (
-                        <ProductCard key={i} />
+                      <div key={i} className=" bg-white rounded-lg p-3 shadow-md w-[200px] h-[220px]">
+                              <img
+                                src={keyboard}
+                                alt="RGB Keyboard"
+                                className="w-[180px] h-[90px] rounded-md"
+                              />
+                              <div className="mt-3">
+                                <h3 className="text-[11px] font-light leading-[17px] text-left font-poppins">
+                                  NERV Watch 2 Pro - 2.01" Amoled Display SmartWatch
+                                </h3>
+                                <div className="flex items-center mt-1">
+                                  <span className="text-[11px] font-medium leading-[17px] text-left font-poppins">GYD</span>
+                                  <span className="text-sm font-bold ml-2">2,903</span>
+                                  <span className="line-through text-gray-500 ml-2">GYD2,903</span>
+                                  <span className="text-red-500 ml-1">-75%</span>
+                                </div>
+                                <div className="w-[180px] h-[7px] bg-gray-200 rounded-lg mt-2">
+                                  <div className="bg-blue-600 h-[6px] rounded-lg" style={{ width: '75%' }}></div>
+                                </div>
+                                <p className="text-red-500 text-xs mt-2">100 in Stocks</p>
+                              </div>
+                            </div>
                     ))}
                 </div>
                 {/* View All Button */}
@@ -94,6 +116,7 @@ const FlashSale = () => {
                     </Button>
                 </div>
             </div>
+            
         </div>
     );
 };
