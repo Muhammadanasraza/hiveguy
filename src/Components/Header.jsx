@@ -49,7 +49,9 @@ const Header = () => {
               <option>English-UK</option>
             </select>
           </div>
-                            <i className=" material-icons"><CgProfile/></i>
+          <a href="/profile">
+            <i className=" material-icons"><CgProfile/></i>
+          </a>
           <a href="/authpage" className="hover:underline">
             Login
           </a>
