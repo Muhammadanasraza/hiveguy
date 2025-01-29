@@ -1,6 +1,6 @@
 import './App.css'
 import Home from './Pages/Home'
-import { BrowserRouter, Route, Routes } from 'react-router-dom';  // FIXED IMPORT
+import { BrowserRouter, Route, Routes } from 'react-router';  // FIXED IMPORT
 import Header from './Components/Header'
 import Footer from './Components/Footer'
 import AuthPage from './Pages/AuthPage'
