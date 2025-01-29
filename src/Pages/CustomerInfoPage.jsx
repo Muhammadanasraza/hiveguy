@@ -220,9 +220,9 @@ export default function CutomerInfoPage() {
               ].map((payment) => (
                 <label
                   key={payment.id}
-                  className="flex items-center justify-between p-4 border rounded-lg cursor-pointer"
+                  className="flex items-center justify-between p-4 border border-gray-3                 00 rounded-lg cursor-pointer"
                 >
-                  <div className="flex items-center gap-4">
+                  <div className="flex flex-col  gap-1">
                     {payment.icon}
                     <span className="text-sm text-gray-500">Select the bank for payment of your item</span>
                   </div>
@@ -240,6 +240,9 @@ export default function CutomerInfoPage() {
                   )}
                 </label>
               ))}
+            </div>
+            <div>
+            
             </div>
           </div>
 

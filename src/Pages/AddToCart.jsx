@@ -88,8 +88,10 @@ export default function AddToCart() {
     ]
 
     return (
-        <div className="max-w-7xl mx-auto p-2  my-5 ">
-            <div className="grid grid-cols-1 items-center p-3 rounded-2xl shadow-sm md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="bg-[#FFF6F6] py-4">
+
+        <div className="max-w-7xl mx-auto p-2   ">
+            <div className="grid grid-cols-1 bg-white items-center p-3 rounded-2xl shadow-sm md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {/* Product imgs Section */}
                 <div className="space-y-4">
                     <div className=" border-blue-500 rounded-lg ">
@@ -270,6 +272,7 @@ export default function AddToCart() {
 
             </div>
 
+        </div>
         </div>
     )
 }

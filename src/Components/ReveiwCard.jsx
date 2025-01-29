@@ -44,7 +44,7 @@ const bestSellers = [
 export default function ReviewsPage() {
     return (
         <div className="lg:col-span-2">
-            <div className="bg-pink-50 rounded-t-lg p-4">
+            <div className="bg-pink-200 rounded-t-lg p-4">
                 <h2 className="font-semibold text-lg">Ratings & Reviews</h2>
             </div>
 
@@ -144,12 +144,26 @@ export default function ReviewsPage() {
                     <button className="w-8 h-8 flex items-center justify-center rounded-full border">&gt;</button>
                 </div>
             </div>
-            <div className="mt-10 lg:col-span-2 shadow-sm rounded-2xl p-10">
+            <div className="mt-10 lg:col-span-2 shadow-sm rounded-2xl p-10 bg-white">
                 <div className="flex justify-between p-5 shadow-sm rounded-sm mb-10 gap-5">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur reprehenur providenm possimus.</p>
-
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur reprehenur providenm possimus.</p>
-
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-3">
+                        <ul className="list-disc space-y-2 pl-4 ">
+                            <li> Product model: Haylou Solar Pro</li>
+                            <li> Display: 1.43" AMOLED display</li>
+                            <li> Resolution: 466×466px</li>
+                            <li> Sensors: Heart rate sensor, motion sensor, SpO2 sensor, pressure sensor</li>
+                            <li> Workout modes: 100+ modes</li>
+                            <li> Battery capacity: 300mAh</li>
+                        </ul>
+                        <ul className="list-disc space-y-2 pl-4">
+                            <li> Battery life: Approx. 7 days (24-hour heart rate monitoring)</li>
+                            <li> Water-resistance grade: 2ATM</li>
+                            <li> Sync data platform: Haylou Watch</li>
+                            <li> Dimensions: 55×49×12mm</li>
+                            <li> Strap width: 22mm</li>
+                            <li> Weight: 45g with strap</li>
+                        </ul>
+                    </div>
                 </div>
                 <img src={rowimage} alt="" className="my-5" />
                 <img src={rowimage2} alt="" className="my-5" />
