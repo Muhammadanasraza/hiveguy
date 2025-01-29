@@ -4,8 +4,8 @@ import { IoIosStar } from "react-icons/io";
 export default function ProductCard({ title, price, rating, Sold, image, badges }) {
   return (
     <div className="bg-white p-4 mx-1 rounded-lg shadow hover:shadow-md transition-shadow">
-      <div className="relative mb-4">
-        <img src={image} alt={title} className="object-contain mx-auto" />
+      <div className=" mb-4">
+        <img src={image} alt={title} className="object-contain  mx-auto" />
       </div>
       <div className="space-y-2">
         <h3 className="text-sm text-gray-800 line-clamp-2">{title}</h3>

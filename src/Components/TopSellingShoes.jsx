@@ -2,9 +2,6 @@ import React from "react";
 import { RiArrowRightLine } from "react-icons/ri";
 import { BiArrowBack } from "react-icons/bi";
 import shoe1 from "../assets/images/shoes.png";
-import shoe2 from "../assets/images/shoes.png";
-import shoe3 from "../assets/images/shoes.png";
-import shoe4 from "../assets/images/shoes.png";
 import pinkbg from "../assets/images/pinkbg.png";
 import ProductCard from  "..//Components/ui/ProductCard"
 

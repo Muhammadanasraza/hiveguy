@@ -52,13 +52,13 @@ const Header = () => {
           <a href="/profile">
             <i className=" material-icons"><CgProfile/></i>
           </a>
-          <a href="authpage" className="hover:underline">
+          <a href="/authpage" className="hover:underline">
             Login
           </a>
           <a href="#" className="hover:underline">
             Sign up
           </a>
-          <a href="#" className="relative">
+          <a href="/addtocart" className="relative">
             <MdOutlineShoppingCart className="text-2xl" />
             <span className="absolute -top-2 -right-2 bg-yellow-400 text-xs text-black rounded-full px-1">
               3

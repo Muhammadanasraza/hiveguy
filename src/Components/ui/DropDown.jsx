@@ -116,7 +116,7 @@ export default function DropDown() {
 
       {/* Mega Menu Dropdown */}
       <div
-        className={`absolute top-full left-0 right-0 mt-2 bg-white rounded-2xl shadow-lg flex
+        className={`absolute top-full  mt-2 bg-white rounded-2xl shadow-lg flex
           transition-all duration-200 ease-in-out origin-top
           ${isOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-4"}`}
       >
