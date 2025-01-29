@@ -48,7 +48,7 @@ const AuthPage = () => {
             </div>
 
             <div className="text-right">
-              <a href="/authpage/forgotpage" className="text-sm text-pink-500 hover:underline">
+              <a href="authpage/forgotpage" className="text-sm text-pink-500 hover:underline">
                 Forgot Password?
               </a>
             </div>

@@ -52,7 +52,7 @@ const Header = () => {
           <a href="/profile">
             <i className=" material-icons"><CgProfile/></i>
           </a>
-          <a href="/authpage" className="hover:underline">
+          <a href="authpage" className="hover:underline">
             Login
           </a>
           <a href="#" className="hover:underline">
