@@ -20,7 +20,52 @@ export default function AddToCart() {
             Sold: 4000,
             image: watch,
             badges: ["Free Shipping", "COD"],
-        }
+        },
+        {
+            id: 1,
+            title: "For Original ww38 M47 Wireless Smartwatch",
+            price: 2903,
+            rating: 4,
+            Sold: 4000,
+            image: watch,
+            badges: ["Free Shipping", "COD"],
+        },
+        {
+            id: 1,
+            title: "For Original ww38 M47 Wireless Smartwatch",
+            price: 2903,
+            rating: 4,
+            Sold: 4000,
+            image: watch,
+            badges: ["Free Shipping", "COD"],
+        },
+        {
+            id: 1,
+            title: "For Original ww38 M47 Wireless Smartwatch",
+            price: 2903,
+            rating: 4,
+            Sold: 4000,
+            image: watch,
+            badges: ["Free Shipping", "COD"],
+        },
+        {
+            id: 1,
+            title: "For Original ww38 M47 Wireless Smartwatch",
+            price: 2903,
+            rating: 4,
+            Sold: 4000,
+            image: watch,
+            badges: ["Free Shipping", "COD"],
+        },
+        {
+            id: 1,
+            title: "For Original ww38 M47 Wireless Smartwatch",
+            price: 2903,
+            rating: 4,
+            Sold: 4000,
+            image: watch,
+            badges: ["Free Shipping", "COD"],
+        },
     ]
 
     const thumbnails = [
