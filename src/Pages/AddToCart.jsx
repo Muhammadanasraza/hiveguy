@@ -6,6 +6,7 @@ import ProductCard from "../Components/ui/ProductCard"
 import ReviewsPage from "../Components/ReveiwCard"
 import watch from "../assets/images/watch.png";
 import AddToCartProduct from "../Components/AddToCartProduct"
+import Button from "../Components/ui/button"
 
 export default function AddToCart() {
     const [quantity, setQuantity] = useState(1)
@@ -87,17 +88,16 @@ export default function AddToCart() {
     ]
 
     return (
-        <div className="max-w-7xl mx-auto p-2 border my-5 ">
-            <div className="grid grid-cols-1  p-3 rounded-2xl shadow-sm md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="max-w-7xl mx-auto p-2  my-5 ">
+            <div className="grid grid-cols-1 items-center p-3 rounded-2xl shadow-sm md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {/* Product imgs Section */}
                 <div className="space-y-4">
-                    <div className="border border-blue-500 rounded-lg p-2">
+                    <div className=" border-blue-500 rounded-lg ">
                         <img
-                            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-29%20194729-Tek973i83VvK0TruLhTEqE0NTVqIMU.png"
+                            src={watch}
                             alt="Haylou Solar Pro Sport Smart Watch"
-                            width={400}
-                            height={400}
-                            className="w-full h-auto"
+                            width={20}
+                            className="w-full p-10 h-auto"
                         />
                     </div>
                     <div className="flex items-center gap-2">
@@ -105,7 +105,7 @@ export default function AddToCart() {
                         {thumbnails.map((thumb) => (
                             <div key={thumb.id} className="border rounded-lg p-1 cursor-pointer hover:border-blue-500">
                                 <img
-                                    src={thumb.src || "/placeholder.svg"}
+                                    src={watch || "/placeholder.svg"}
                                     alt={thumb.alt}
                                     width={60}
                                     height={60}
@@ -186,7 +186,7 @@ export default function AddToCart() {
 
                     <div className="flex gap-4 pt-4">
                         <button className="flex-1 bg-gray-500 text-white py-3 rounded-md hover:bg-gray-600">Buy Now</button>
-                        <button className="flex-1 bg-pink-600 text-white py-3 rounded-md hover:bg-pink-700">Add to Cart</button>
+                        <Button className="flex-1 bg-pink-600 text-white py-3 rounded-md hover:bg-pink-700">Add to Cart</Button>
                     </div>
                 </div>
 

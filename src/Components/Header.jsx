@@ -68,7 +68,7 @@ const Header = () => {
       </div>
 
       {/* Bottom Links */}
-      <div className="bg-gradient-to-r from-[#98164a] to-[#250b56] py-1">
+      <div className="bg-gradient-to-r  from-[#98164a] to-[#250b56] py-2">
         <div className="container mx-auto px-6 sm:px-13 flex flex-col sm:flex-row items-center justify-between">
           {/* Category Dropdown */}
           <DropDown/>
