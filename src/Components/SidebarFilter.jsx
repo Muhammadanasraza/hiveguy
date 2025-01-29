@@ -28,7 +28,7 @@ function ColorSwatch({ color, label, selected } ) {
 
 export default function SidebarFilter() {
   return (
-    <div className="w-64 bg-white p-4 border-r  ">
+    <div className="w-64 bg-[#FFF6F6] p-4 border-r  ">
       {/* Promotion & Services */}
       <FilterSection title="Promotion & Services">
         <div className="space-y-2">

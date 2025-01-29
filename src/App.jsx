@@ -7,6 +7,7 @@ import AuthPage from './Pages/AuthPage'
 import ForgotPassword from './Components/ForgotPage'
 import ProductListing from './Pages/ProductListing'
 import AddToCart from './Pages/AddToCart';
+import CutomerInfoPage from './Pages/CustomerInfoPage';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/authpage/forgotpage" element={<ForgotPassword />} />
         <Route path="/productlisting" element={<ProductListing />} />
         <Route path="/addtocart" element={<AddToCart />} />
+        <Route path="/customerpage" element={<CutomerInfoPage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

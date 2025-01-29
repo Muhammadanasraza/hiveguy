@@ -127,9 +127,9 @@ export default function ProductListingPage() {
     const [viewMode, setViewMode] = useState("grid")
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-[#FFF6F6]">
             {/* Breadcrumb */}
-            <div className="bg-white border-b">
+            <div className=" border-b w-7xl  mx-auto">
                 <div className="max-w-7xl mx-auto px-4 py-2">
                     <div className="flex items-center gap-2 text-sm">
                         <a href="/" className="text-blue-600 hover:underline">
@@ -141,13 +141,13 @@ export default function ProductListingPage() {
                 </div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-4 py-6">
+            <div className="max-w-7xl mx-auto px-4 py-1">
                 <div className="flex gap-6">
                     {/* Sidebar */}
                     <SidebarFilter />
 
                     {/* Main Content */}
-                    <div className="flex-1">
+                    <div className="flex-1 py-4">
                         {/* Sort and View Options */}
                         <div className="flex items-center justify-between mb-6">
                             <div className="text-sm text-gray-600">Sort By: View: 1,836 items found for "watch gt4 pro"</div>

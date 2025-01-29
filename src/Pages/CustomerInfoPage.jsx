@@ -1,104 +1,116 @@
-"use client"
-
+import React from "react"
 import { useState } from "react"
-import Image from "next/image"
 import { FaCreditCard, FaTicketAlt } from "react-icons/fa"
 import { SiVisa, SiMastercard } from "react-icons/si"
 import { IoRadioButtonOff, IoRadioButtonOn } from "react-icons/io5"
 import { MdKeyboardArrowRight } from "react-icons/md"
+import Button from "../Components/ui/button"
 
-export default function CutomerInformation() {
+export default function CutomerInfoPage() {
+
   const [selectedPayment, setSelectedPayment] = useState("visa")
   const [addressType, setAddressType] = useState("home")
   const [addressOption, setAddressOption] = useState("delivery")
 
   return (
-    <div className="max-w-7xl mx-auto p-4 md:p-8">
+    <div className="bg-[#FFF6F6]">
+    <div className="max-w-7xl mx-auto p-4  md:p-8">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Left Column */}
-        <div className="space-y-6">
+        <div className="space-y-6 ">
           {/* Customer Information */}
           <div className="bg-white rounded-3xl p-6 shadow-sm">
             <h2 className="text-xl font-bold mb-6">Customer Information</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm mb-1">Full Name</label>
-                <input type="text" defaultValue="Pikachu Chopechan" className="w-full p-3 border rounded-lg" />
+
+                <div className="my-3">
+                  <label className="block text-sm mb-2">Full Name</label>
+                  <input type="text" defaultValue="Pikachu Chopechan" className="w-full p-3 border border-gray-300 rounded-lg" />
+                </div>
+
+                <label className="block text-sm mb-2">Country</label>
+                <input type="text" defaultValue="United States" className="w-full p-3 border border-gray-300 rounded-lg" />
+
+                <div className="my-3">
+                  <label className="block text-sm mb-2">City</label>
+                  <input type="text" defaultValue="(469) 123-0000" className="w-full p-3 border border-gray-300 rounded-lg" />
+                </div>
+                <div className="my-3">
+                  <label className="block text-sm mb-2">Phone Number</label>
+                  <input type="tel" defaultValue="(469) 123-0000" className="w-full p-3 border border-gray-300 rounded-lg" />
+                </div>
               </div>
               <div>
-                <label className="block text-sm mb-1">Email Add</label>
-                <input type="email" defaultValue="Pikachu Chopechan" className="w-full p-3 border rounded-lg" />
-              </div>
-              <div>
-                <label className="block text-sm mb-1">Country</label>
-                <input type="text" defaultValue="United States" className="w-full p-3 border rounded-lg" />
-              </div>
-              <div>
-                <label className="block text-sm mb-1">Phone Number</label>
-                <input type="tel" defaultValue="(469) 123-0000" className="w-full p-3 border rounded-lg" />
-              </div>
-              <div>
-                <label className="block text-sm mb-1">City</label>
-                <input type="text" defaultValue="(469) 123-0000" className="w-full p-3 border rounded-lg" />
+
+                <div className="my-3">
+                  <label className="block text-sm mb-2">Email Add</label>
+                  <input type="email" defaultValue="Pikachu Chopechan" className="w-full p-3 border border-gray-300 rounded-lg" />
+                </div>
+
+                <div className="mt-8">
+                  <label className="block text-sm mb-2">Select a label for effective delivery:</label>
+                  <div className="flex gap-4">
+                    <button
+                      className={`px-6 py-2 rounded-lg ${addressType === "home" ? "bg-white shadow-sm" : "bg-gray-50"}`}
+                      onClick={() => setAddressType("home")}
+                    >
+                      Home
+                    </button>
+                    <button
+                      className={`px-6 py-2 rounded-lg ${addressType === "office" ? "bg-white shadow-sm" : "bg-gray-50"}`}
+                      onClick={() => setAddressType("office")}
+                    >
+                      Office
+                    </button>
+                  </div>
+                </div>
+
+                <div className="mt-6 ">
+                  <label className="block text-sm mb-2">Default Address (Optional)</label>
+                  <div className="space-y-2 shadow-sm p-3 rounded-xl">
+                    <label className="flex items-center gap-2">
+                      <input
+                        type="radio"
+                        name="address"
+                        checked={addressOption === "delivery"}
+                        onChange={() => setAddressOption("delivery")}
+                        className="hidden"
+                      />
+                      {addressOption === "delivery" ? (
+                        <IoRadioButtonOn className="w-5 h-5 text-blue-500" />
+                      ) : (
+                        <IoRadioButtonOff className="w-5 h-5 text-gray-400" />
+                      )}
+                      Default delivery address
+                    </label>
+                    <label className="flex items-center gap-2">
+                      <input
+                        type="radio"
+                        name="address"
+                        checked={addressOption === "billing"}
+                        onChange={() => setAddressOption("billing")}
+                        className="hidden"
+                      />
+                      {addressOption === "billing" ? (
+                        <IoRadioButtonOn className="w-5 h-5 text-blue-500" />
+                      ) : (
+                        <IoRadioButtonOff className="w-5 h-5 text-gray-400" />
+                      )}
+                      Default billing address
+                    </label>
+                    <p className="text-sm text-gray-500 mt-2">
+                      Your existing default address setting will be replaced if you make some changes here
+                    </p>
+                  </div>
+                </div>
+
               </div>
             </div>
 
-            <div className="mt-6">
-              <label className="block text-sm mb-2">Select a label for effective delivery:</label>
-              <div className="flex gap-4">
-                <button
-                  className={`px-6 py-2 rounded-lg ${addressType === "home" ? "bg-white shadow-md" : "bg-gray-50"}`}
-                  onClick={() => setAddressType("home")}
-                >
-                  Home
-                </button>
-                <button
-                  className={`px-6 py-2 rounded-lg ${addressType === "office" ? "bg-white shadow-md" : "bg-gray-50"}`}
-                  onClick={() => setAddressType("office")}
-                >
-                  Office
-                </button>
-              </div>
-            </div>
 
-            <div className="mt-6">
-              <label className="block text-sm mb-2">Default Address (Optional)</label>
-              <div className="space-y-2">
-                <label className="flex items-center gap-2">
-                  <input
-                    type="radio"
-                    name="address"
-                    checked={addressOption === "delivery"}
-                    onChange={() => setAddressOption("delivery")}
-                    className="hidden"
-                  />
-                  {addressOption === "delivery" ? (
-                    <IoRadioButtonOn className="w-5 h-5 text-blue-500" />
-                  ) : (
-                    <IoRadioButtonOff className="w-5 h-5 text-gray-400" />
-                  )}
-                  Default delivery address
-                </label>
-                <label className="flex items-center gap-2">
-                  <input
-                    type="radio"
-                    name="address"
-                    checked={addressOption === "billing"}
-                    onChange={() => setAddressOption("billing")}
-                    className="hidden"
-                  />
-                  {addressOption === "billing" ? (
-                    <IoRadioButtonOn className="w-5 h-5 text-blue-500" />
-                  ) : (
-                    <IoRadioButtonOff className="w-5 h-5 text-gray-400" />
-                  )}
-                  Default billing address
-                </label>
-              </div>
-              <p className="text-sm text-gray-500 mt-2">
-                Your existing default address setting will be replaced if you make some changes here
-              </p>
-            </div>
+
+
           </div>
 
           {/* Flash Store Section */}
@@ -145,9 +157,9 @@ export default function CutomerInformation() {
         </div>
 
         {/* Right Column */}
-        <div className="space-y-6">
+        <div className="space-y-6  ">
           {/* Discount and Payment */}
-          <div className="bg-white rounded-3xl p-6 shadow-sm">
+          <div className="bg-white rounded-3xl p-6  shadow-sm ">
             <h2 className="text-xl font-bold mb-6">Discount and Payment</h2>
 
             <div className="space-y-4 mb-6">
@@ -169,6 +181,7 @@ export default function CutomerInformation() {
                   <MdKeyboardArrowRight className="w-5 h-5" />
                 </button>
               </div>
+
             </div>
 
             <div className="border-t pt-4 space-y-4">
@@ -186,6 +199,10 @@ export default function CutomerInformation() {
                 <span>Gyd. 1,894</span>
               </div>
               <p className="text-sm text-gray-500">VAT included, where applicable</p>
+
+              <Button className="w-full py-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-xl font-semibold">
+                Place order
+              </Button>
             </div>
           </div>
 
@@ -226,11 +243,10 @@ export default function CutomerInformation() {
             </div>
           </div>
 
-          <button className="w-full py-4 bg-gradient-to-r from-pink-500 to-purple-600 text-white rounded-xl font-semibold">
-            Place order
-          </button>
+
         </div>
       </div>
+    </div>
     </div>
   )
 }
