@@ -1,0 +1,6 @@
+
+this is for customerpage
+/customerpage
+
+this is for ProductListind
+/productlisting

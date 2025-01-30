@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import { TfiMenuAlt } from "react-icons/tfi";
+
 import DropDown from "./ui/DropDown";
 import { CgProfile } from "react-icons/cg";
 
@@ -37,7 +37,7 @@ const Header = () => {
         </div>
 
         {/* User Actions */}
-        <div className="flex items-center space-x-6">
+        <div className="flex items-center space-x-5">
           <div className="flex items-center space-x-2">
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Flag_of_South_Africa.svg"
@@ -49,9 +49,15 @@ const Header = () => {
               <option>English-UK</option>
             </select>
           </div>
-          <a href="/profile">
-            <i className=" material-icons"><CgProfile/></i>
-          </a>
+
+          <div className="flex items-center gap-1 ">
+            <a className="flex items-center gap-1" href="/profile">
+              <i className=" material-icons"><CgProfile /></i>
+
+            </a>
+            <h1>anasraza</h1>
+            <RiArrowDropDownLine className="text-xl items-center" />
+          </div>
           <a href="/authpage" className="hover:underline">
             Login
           </a>
@@ -71,7 +77,7 @@ const Header = () => {
       <div className="bg-gradient-to-r  from-[#98164a] to-[#250b56] py-2">
         <div className="container mx-auto px-6 sm:px-13 flex flex-col sm:flex-row items-center justify-between">
           {/* Category Dropdown */}
-          <DropDown/>
+          <DropDown />
 
           {/* Bottom Links */}
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 text-sm text-center sm:text-left">
