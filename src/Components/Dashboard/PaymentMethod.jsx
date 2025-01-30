@@ -5,12 +5,22 @@ import left from '../../assets/images/left.png';
 import right from '../../assets/images/right.png';
 import visa from '../../assets/images/visa.png';
 import mastercard from '../../assets/images/mastercard.png';
-import craditcard from '../../assets/images/craditcard.png'
-import craditcard2 from '../../assets/images/craditcard.png'
+import craditcard from '../../assets/images/craditcard.png';
+import craditcard2 from '../../assets/images/craditcard.png';
 import Button from "../ui/button";
+import succes from '../../assets/images/succces.png'
+
+
 
 export default function PaymentOptions() {
   const [showDialog, setShowDialog] = useState(false);
+  const [showSuccessDialog, setShowSuccessDialog] = useState(false);
+
+  const handleConfirm = () => {
+    setShowDialog(false);
+    setShowSuccessDialog(true);
+    setTimeout(() => setShowSuccessDialog(false), 2000);
+  };
 
   return (
     <div className="p-6 bg-pink-50 min-h-screen">
@@ -79,11 +89,30 @@ export default function PaymentOptions() {
                 Cancel
               </button>
               <Button 
-                className="px-6 py-2  text-white rounded-lg hover:opacity-90"
+                className="px-6 py-2 text-white rounded-lg hover:opacity-90"
+                onClick={handleConfirm}
               >
                 Confirm
               </Button>
             </div>
+          </div>
+        </div>
+      )}
+
+      {/* Success Dialog */}
+      {showSuccessDialog && (
+        <div className="fixed inset-0 flex items-center justify-center bg-[#353535f0] bg-opacity-50">
+            
+          <div className="bg-white p-6 rounded-lg shadow-lg w-[400px] text-center relative">
+            <img className="mx-auto pb-3" src={succes} alt="" />
+            <h3 className="text-xl font-bold mb-4">Added Successfully</h3>
+            <p className="text-gray-600">You can use your Bank Account to Withdraw from your HiveGuy Wallet</p>
+            <Button 
+              className="mt-4 px-6 py-2   text-white rounded-lg  "
+              onClick={() => setShowSuccessDialog(false)}
+            >
+              OK
+            </Button>
           </div>
         </div>
       )}
