@@ -83,7 +83,7 @@ function AddToCartProduct() {
 
     return (
         <>
-            <div className='w-6xl my-5 p2 mx-auto '>
+            <div className='my-5 p-2 mx-auto grid grid-cols-1 md:grid-3 lg:grid-4 '>
                 <h1 className='text-2xl font-bold'>You May Like Also</h1>
                 <div className='mt-10 grid lg:grid-cols-4 md:grid-cols-3 max-sm:grid-cols-1 px-2 gap-2 text-center mx-auto justify-between'>
                     {products.map((product, index) =>(

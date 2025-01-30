@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { MdOutlineShoppingCart } from "react-icons/md";
-import { RiArrowDropDownLine } from "react-icons/ri";
+
+import avatar from '../assets/images/avatar.jpg'
 
 import DropDown from "./ui/DropDown";
 import { CgProfile } from "react-icons/cg";
+import ProfileDropdown from "./ui/ProfileDropdown";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,16 +14,35 @@ const Header = () => {
     setIsOpen(!isOpen);
   };
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  const handleLogin = () => {
+    setIsLoggedIn(true)
+    console.log("User logged in")
+  }
+
+  const handleSignup = () => {
+    setIsLoggedIn(true)
+    console.log("User signed up")
+  }
+
+  const handleLogout = () => {
+    setIsLoggedIn(false)
+    console.log("User logged out")
+  }
+
+  const user = "login"
+
   return (
     <header className="bg-gradient-to-r from-[#F81972] to-[#2F155B] text-white">
       <div className="text-center border-b-1 border-b-white p-1">
         <span className="text-lg">Welcome to HiveGY online eCommerce store.</span>
       </div>
       {/* Top Section */}
-      <div className="container mx-auto px-6 py-1 sm:px-4 gap-5 border-b-1 border-b-black flex flex-col sm:flex-row items-center justify-between">
+      <div className="container max-w-7xl mx-auto px-6 py-1 sm:px-4 gap-5    flex flex-col sm:flex-row items-center justify-between">
         {/* Logo */}
-        <div className="bg-white rounded-full p-2 mb-4 sm:mb-0">
-          <img src="https://via.placeholder.com/50" alt="Logo" className="w-8 h-8" />
+        <div className=" rounded-full p-2  sm:mb-0">
+          <img src={avatar} alt="Logo" className="rounded-full w-10 h-10" />
         </div>
 
         {/* Search Bar */}
@@ -37,8 +58,8 @@ const Header = () => {
         </div>
 
         {/* User Actions */}
-        <div className="flex items-center space-x-5">
-          <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-1">
             <img
               src="https://upload.wikimedia.org/wikipedia/commons/4/4f/Flag_of_South_Africa.svg"
               alt="Flag"
@@ -49,21 +70,35 @@ const Header = () => {
               <option>English-UK</option>
             </select>
           </div>
+          {
+            user === 'login' ?
+              <div className="flex items-center gap-1 ">
+                <a className="flex items-center gap-1" href="/profile">
 
-          <div className="flex items-center gap-1 ">
-            <a className="flex items-center gap-1" href="/profile">
-              <i className=" material-icons"><CgProfile /></i>
+                  <img class="w-10 h-10 rounded-full mr-3" src={avatar} alt="" />
 
-            </a>
-            <h1>anasraza</h1>
-            <RiArrowDropDownLine className="text-xl items-center" />
-          </div>
-          <a href="/authpage" className="hover:underline">
-            Login
-          </a>
-          <a href="#" className="hover:underline">
-            Sign up
-          </a>
+               
+
+                </a>
+                <h1>anasraza</h1>
+                <ProfileDropdown
+                  isLoggedIn={isLoggedIn}
+                  onLogin={handleLogin}
+                  onSignup={handleSignup}
+                  onLogout={handleLogout}
+                />
+              </div> :
+              <div>
+
+                <a href="/authpage" className="hover:underline px-3">
+                  Login
+                </a>
+                <a href="#" className="hover:underline">
+                  Sign up
+                </a>
+              </div>
+          }
+
           <a href="/addtocart" className="relative">
             <MdOutlineShoppingCart className="text-2xl" />
             <span className="absolute -top-2 -right-2 bg-yellow-400 text-xs text-black rounded-full px-1">
@@ -74,13 +109,14 @@ const Header = () => {
       </div>
 
       {/* Bottom Links */}
-      <div className="bg-gradient-to-r  from-[#98164a] to-[#250b56] py-2">
-        <div className="container mx-auto px-6 sm:px-13 flex flex-col sm:flex-row items-center justify-between">
+      <div className="   mx-auto bg-gradient-to-r from-[#98164a] to-[#250b56] border-t-1 border-black">
+      <div className=" lg:w-7xl mx-auto py-2">
+        <div className="container mx-auto px-2 flex flex-col sm:flex-row items-center">
           {/* Category Dropdown */}
           <DropDown />
 
           {/* Bottom Links */}
-          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 text-sm text-center sm:text-left">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 text-[13px] text-center sm:text-left">
             <a href="#" className="hover:underline">
               Track Your Order
             </a>
@@ -98,6 +134,7 @@ const Header = () => {
             </a>
           </div>
         </div>
+      </div>
       </div>
     </header>
   );

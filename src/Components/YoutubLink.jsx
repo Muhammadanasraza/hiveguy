@@ -16,7 +16,7 @@ function YoutubLink() {
             />
             
             {/* Bottom Left Text */}
-            <h1 className="absolute bottom-4 lg:pb-10 max-sm:pb-1 min-md:pb-5  min-md:text-4xl pl-4 left-4 lg:text-7xl max-sm:text-1xl font-bold text-white">
+            <h1 className="absolute bottom-4 lg:pb-10 max-sm:pb-1 min-md:pb-5  min-md:text-4xl lg:pl-10 left-4 lg:text-7xl max-sm:text-1xl font-bold text-white">
                 Introducing HiveGY
             </h1>
         </div>

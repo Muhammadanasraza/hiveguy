@@ -8,7 +8,7 @@ const FlashSale = () => {
     return (
         <div className="flex flex-col md:flex-row mt-10 rounded-4xl bg-white gap-4 px-3 py-10">
             {/* Flash Sale Section */}
-            <div className="w-full md:w-2/5 bg-white shadow-md rounded-lg">
+            <div className="w-full md:w-2/5  bg-white shadow-md rounded-lg">
                 <h2 className="text-white p-3 bg-gradient-to-r from-[#F81972] to-[#2F155B] font-bold text-2xl mb-4">
                     Flash Sale
                 </h2>
