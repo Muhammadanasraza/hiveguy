@@ -57,7 +57,7 @@ export default function TopSellers() {
   };
 
   return (
-    <div className="py-5 my-10 w-7xl justify-center mx-auto">
+    <div className="py-5 my-10 ">
       <h2 className="text-3xl pl-3 font-bold text-left mb-6">Top Sellers</h2>
       <div className="relative flex items-center justify-center">
         {/* Slider Control - Previous */}
@@ -69,7 +69,7 @@ export default function TopSellers() {
         </button>
 
         {/* Product Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 overflow-hidden p-4 w-full">
+        <div className="grid lg:grid-cols-4 md:grid-cols-3 max-sm:grid-cols-1 gap-1">
           {products.map((product, index) => (
             <ProductCard key={index} {...product}/>
           ))}

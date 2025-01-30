@@ -4,7 +4,7 @@ import vector from '../assets/images/Vector.png';
 const NewsletterSignup = () => {
   return (
     
-      <div className="bg-[#321159] my-10 container items-center  text-white py-4 px-6 rounded-lg flex   max-w-7xl w-full mx-auto">
+      <div className="bg-[#321159] my-10 container items-center  text-white py-4 px-6 rounded-lg flex   max-w-7xl w-full  ">
         {/* Left Section - Icon and Text */} 
         <div className="flex items-center lg:items-start flex-col lg:flex-row">
           <div className="p-4 rounded-full flex justify-center items-center mb-4 lg:mb-0 lg:mr-6">

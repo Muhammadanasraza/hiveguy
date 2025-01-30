@@ -6,7 +6,7 @@ import keyboard from '../assets/images/keyboard.png'
 
 const FlashSale = () => {
     return (
-        <div className="flex flex-col md:flex-row mt-10 rounded-4xl bg-white gap-4 px-3 py-10">
+        <div className="flex flex-col md:flex-row mt-10 mx-4 rounded-4xl bg-white gap-4 px-3 py-10">
             {/* Flash Sale Section */}
             <div className="w-full md:w-2/5  bg-white shadow-md rounded-lg">
                 <h2 className="text-white p-3 bg-gradient-to-r from-[#F81972] to-[#2F155B] font-bold text-2xl mb-4">
@@ -83,7 +83,7 @@ const FlashSale = () => {
                     ))}
                 </div>
                 {/* Products */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3  gap-4">
+                <div className="grid md:grid-cols-2 max-sm:grid-cols-1 lg:grid-cols-3  gap-4">
                     {[...Array(6)].map((_, i) => (
                       <div key={i} className=" bg-white rounded-lg p-3 shadow-md w-[200px] h-[220px]">
                               <img

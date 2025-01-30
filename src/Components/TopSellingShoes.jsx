@@ -63,7 +63,7 @@ const TopSellingShoes = () => {
           {/* Left Arrow */}
 
           {/* Product Cards */}
-          <div className="flex gap-6  overflow-x-auto justify-center scrollbar-hide w-full p-4">
+          <div className="grid max-sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-4  gap-6 justify-center  w-full p-4">
             {products.map((product, index) => (
               <ProductCard  key={index} {...product} />
             ))}
