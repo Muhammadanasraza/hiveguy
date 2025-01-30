@@ -77,24 +77,23 @@ export default function MyOrders() {
                             </select>
                         </div>
                         {allOrders.map((order) => (
-                            <div className="shadow-sm p-2 rounded-2xl">
-                                <div className="flex justify-between  py-2 border-b">
-                                    <div className="p-3 ">
-                                        Order <span className="text-pink-600">#{order.id}</span>
-                                        <p className="text-sm text-gray-500">Placed on {order.date}</p>
-                                    </div>
-                                    <div className="items-center flex">
-
-                                        <Button className="text-white px-4 py-2 rounded-full">Manage</Button>
-                                    </div>
-                                </div>
-                                <div className="flex justify-between gap-10 p-5  items-center">
-                                    <img src={order.image} alt="Product" className="w-16 h-16 rounded" />
-                                    <p className="text-gray-800 mt-2">{order.product}</p>
-                                    <p className="text-gray-700 mt-1">Qty: 1</p>
-                                    <button className="bg-gray-300 text-gray-700 px-3  rounded">{order.status}</button>
-                                </div>
-                            </ div>
+                            <div className="shadow-sm p-2 bg-white rounded-2xl">
+                            <div className="flex justify-between py-2 border-b">
+                              <div className="p-3">
+                                Order <span className="text-pink-600">#{order.id}</span>
+                                <p className="text-sm text-gray-500">Placed on {order.date}</p>
+                              </div>
+                              <div className="items-center flex">
+                                <Button className="text-white px-4 py-2 rounded-full">Manage</Button>
+                              </div>
+                            </div>
+                            <div className="flex justify-between lg:gap-10 max-sm:gap-2 p-5 items-center">
+                              <img src={order.image} alt="Product" className="w-16 h-16 rounded" />
+                              <p className="text-gray-800 mt-2">{order.product}</p>
+                              <p className="text-gray-700 mt-1">Qty:1</p>
+                              <button className="bg-gray-300 text-gray-700 px-2 rounded-sm">{order.status}</button>
+                            </div>
+                          </div>
                         ))}
                     </>
                 )}
@@ -105,7 +104,6 @@ export default function MyOrders() {
                         <h2 className="text-lg font-bold mb-2">To Pay</h2>
                         {toPayOrders.map((order) => (
                             <div className="max-w-sm rounded overflow-hidden shadow-lg bg-white border border-gray-300">
-                                <h1>a</h1>
                             </div>
                         ))}
                     </>

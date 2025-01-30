@@ -48,33 +48,26 @@ const AccountDashboard = () => {
     setIsEditing(!isEditing);
   };
 
-
-  // addaddressDialog
-  // addaddressDialog
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-
   const openDialog = () => setIsDialogOpen(true);
   const closeDialog = () => setIsDialogOpen(false);
-  // addaddressDialog
 
   const allOrders = [
     {
       id: "187511387376006",
       date: "27 May 2024 22:59:03",
-      product: "i7s Double and i12 Airpods Wireless Bluetooth with Charging Case",
+      product: "i7s Double and i12 Charging Case",
       status: "Cancelled",
       image: airbuds,
     }
   ];
 
-
   return (
-    <div className=" min-h-screen  bg-pink-50 p-6">
-      <div className=" flex max-w-7xl mx-auto">
-
+    <div className="min-h-screen bg-pink-50 p-6">
+      <div className="flex flex-col lg:flex-row max-w-7xl mx-auto">
 
         {/* Sidebar */}
-        <div className="w-1/4 bg-white p-6 rounded-xl shadow-lg">
+        <div className="w-full lg:w-1/4 bg-white p-6 rounded-xl shadow-lg mb-6 lg:mb-0">
           <h2 className="text-lg font-bold mb-2">Hello, Cheddi Jagan12</h2>
           <ul>
             {menuItems.map((item) => (
@@ -84,7 +77,6 @@ const AccountDashboard = () => {
                   }`}
                 onClick={() => setSelectedTab(item.name)}
               >
-                {/* <item.icon className="text-lg" /> */}
                 {item.name}
               </li>
             ))}
@@ -92,16 +84,14 @@ const AccountDashboard = () => {
         </div>
 
         {/* Main Content */}
-        <div className="flex-1 ml-6">
-          <h1 className="text-2xl font-bold mb-6 ">{selectedTab}</h1>
+        <div className="flex-1 lg:ml-6">
+          <h1 className="text-2xl font-bold mb-6">{selectedTab}</h1>
 
           {/* Manage My Account*/}
           {selectedTab === "Manage My Account" && (
             <div>
-              <div className="grid grid-cols-3 gap-6 ">
-
-                <div className="p-6 bg-white rounded-xl shadow-sm w-76 relative">
-
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div className="p-6 bg-white rounded-xl shadow-sm relative">
                   <div className="absolute top-3 right-3 cursor-pointer" onClick={handleEdit}>
                     {isEditing ? <FaSave className="text-blue-500" /> : <FaEdit className="text-gray-600" />}
                   </div>
@@ -135,10 +125,9 @@ const AccountDashboard = () => {
                     {isEditing ? <FaSave className="text-blue-500" /> : <FaEdit className="text-gray-600" />}
                   </div>
                   <h2 className="text-xl font-bold">Address Book</h2>
-                  <h2 className="text- text-gray-400 font-bold">DEFAULT DELEVERY ADDRESS</h2>
+                  <h2 className="text-gray-400 font-bold">DEFAULT DELIVERY ADDRESS</h2>
                   {isEditing ? (
                     <>
-
                       <input
                         type="text"
                         className="border rounded-md p-2 w-full mt-2"
@@ -161,70 +150,60 @@ const AccountDashboard = () => {
                   )}
                 </div>
 
-
                 <div className="p-6 bg-white rounded-xl shadow-sm">
                   <h2 className="font-semibold text-lg">Address Book</h2>
                   <p><strong>Cheddi Jagan</strong></p>
                   <p>Linden-Lethem Rd, Guyana</p>
                   <p>(469) 123-0000</p>
                 </div>
-
               </div>
 
               <div className="py-5 bg-white rounded-xl shadow-sm mt-10">
-
-
-
                 <h2 className="text-lg font-semibold mb-2 px-4">Recent Orders</h2>
-                <div className="  overflow-hidden">
+                <div className="overflow-hidden">
                   <div className="bg-red-100 text-gray-600 font-medium flex p-3">
                     <span className="w-1/4">Order #</span>
                     <span className="w-1/4">Placed On</span>
                     <span className="w-1/4">Items</span>
                     <span className="w-1/4">Total</span>
                   </div>
-                  <div className="flex items-center p-5 ">
-                    <span className="w-1/4">187511387376006</span>
-                    <span className="w-1/4 flex items-center gap-1">
+                  <div className="flex items-center p-5">
+                    <span className="w-2/4">187511</span>
+                    <span className="w-2/4 flex items-center gap-1">
                       <FaRegClock />
-                      --/--/----</span>
-                    <span className="w-1/4">
+                      --/-</span>
+                    <span className="w-2/4">
                       <img
-                        src="https://via.placeholder.com/40" // Replace with actual image URL
+                        src="https://via.placeholder.com/40"
                         alt="Order Item"
                         className="w-10 h-10 rounded-md object-cover"
                       />
                     </span>
-                    <span className="w-1/4 flex justify-between items-center">
-                      <span>Gyd. 925</span>
+                    <span className="w-2/4 flex justify-between items-center">
+                      <span>Gyd.  925</span>
                       <Button className="border border-red-400 text-red-400 px-3 py-1 rounded-lg hover:bg-red-400 hover:text-white transition">
                         Manage
                       </Button>
                     </span>
                   </div>
                 </div>
-
               </div>
-
             </div>
           )}
 
           {/* My Profile */}
           {selectedTab === "My Profile" && (
-            <div className="p-6 bg-white rounded-xl shadow-sm  w-4xl relative">
-              {/* <h2 className="text-xl font-bold">Personal Profile</h2> */}
+            <div className="p-6 bg-white rounded-xl shadow-sm w-full lg:w-4xl relative">
               <MyProfile />
-
             </div>
           )}
-
 
           {/* Address Book */}
           {selectedTab === "Address Book" && (
             <div className="grid grid-cols-1 gap-6">
               <Button
                 onClick={openDialog}
-                className="px-4 py-2   text-white rounded-lg shadow-md  transition"
+                className="px-4 py-2 text-white rounded-lg shadow-md transition"
               >
                 Add New Address
               </Button>
@@ -234,7 +213,7 @@ const AccountDashboard = () => {
                 onClose={closeDialog}
               />
 
-              <div className="p-6 bg-white rounded-xl w-4xl shadow-lg">
+              <div className="p-6 bg-white rounded-xl w-full lg:w-4xl shadow-lg">
                 <AddressCard />
               </div>
             </div>
@@ -242,7 +221,7 @@ const AccountDashboard = () => {
 
           {/* My Payment Options */}
           {selectedTab === "My Payment Options" && (
-            <div className=" bg-white rounded-xl ">
+            <div className="bg-white rounded-xl">
               <PaymentOptions />
             </div>
           )}
@@ -250,47 +229,30 @@ const AccountDashboard = () => {
           {/* HiveGy Wallet */}
           {selectedTab === "HiveGy Wallet" && (
             <div className="p-6 bg-white rounded-xl shadow-lg">
-
-              <h2 className="font-semibold text-lg">HiveGy Wallet</h2>
-              <div className="mt-4 border-t pt-4">
-                <div className="flex justify-between items-center">
-                  <p>Order #: 187511387376006</p>
-                  <p>Total: Gyd. 925</p>
-                  <button className="px-4 py-2 bg-pink-500 text-white rounded-lg">Manage</button>
-                </div>
-              </div>
+               
             </div>
           )}
 
           {/* Vouchers */}
           {selectedTab === "Vouchers" && (
             <div className="p-6 bg-white rounded-xl shadow-lg">
-              <h2 className="font-semibold text-lg">Vouchers</h2>
-              <div className="mt-4 border-t pt-4">
-                <div className="flex justify-between items-center">
-                  <p>Order #: 187511387376006</p>
-                  <p>Total: Gyd. 925</p>
-                  <button className="px-4 py-2 bg-pink-500 text-white rounded-lg">Manage</button>
-                </div>
-              </div>
+               
             </div>
           )}
 
-          {/* Vouchers */}
+          {/* My Orders */}
           {selectedTab === "My Orders" && (
             <div className="p-6 bg-white rounded-xl shadow-lg">
-
               <MyOrders />
             </div>
           )}
 
-
           {/* My Returns */}
           {selectedTab === "My Returns" && (
-            <div className="max-w-full text-center items-center  rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-300">
+            <div className="max-w-full text-center items-center rounded-2xl overflow-hidden shadow-lg bg-white border border-gray-300">
               <div className="shadow-sm py-10">
                 <h1 className="pb-5">There are no orders placed yet.</h1>
-                <Button> Continue Shopping</Button>
+                <Button>Continue Shopping</Button>
               </div>
             </div>
           )}
@@ -300,44 +262,41 @@ const AccountDashboard = () => {
             <div>
               {allOrders.map((order) => (
                 <div className="shadow-sm p-2 bg-white rounded-2xl">
-                  <div className="flex justify-between  py-2 border-b">
-                    <div className="p-3 ">
+                  <div className="flex justify-between py-2 border-b">
+                    <div className="p-3">
                       Order <span className="text-pink-600">#{order.id}</span>
                       <p className="text-sm text-gray-500">Placed on {order.date}</p>
                     </div>
                     <div className="items-center flex">
-
                       <Button className="text-white px-4 py-2 rounded-full">Manage</Button>
                     </div>
                   </div>
-                  <div className="flex justify-between gap-10 p-5  items-center">
+                  <div className="flex justify-between lg:gap-10 max-sm:gap-2 p-5 items-center">
                     <img src={order.image} alt="Product" className="w-16 h-16 rounded" />
                     <p className="text-gray-800 mt-2">{order.product}</p>
-                    <p className="text-gray-700 mt-1">Qty: 1</p>
-                    <button className="bg-gray-300 text-gray-700 px-3  rounded">{order.status}</button>
+                    <p className="text-gray-700 mt-1">Qty:1</p>
+                    <button className="bg-gray-300 text-gray-700 px-2 rounded-sm">{order.status}</button>
                   </div>
-                </ div>
+                </div>
               ))}
             </div>
-
           )}
 
           {/* My Reviews */}
           {selectedTab === "My Reviews" && (
             <div className="p-6 bg-white rounded-xl shadow-lg">
-              <MyReview/>
+              <MyReview />
             </div>
           )}
 
           {/* My Wishlist & Followed Stores */}
           {selectedTab === "My Wishlist & Followed Stores" && (
             <div className="p-6 bg-white rounded-xl shadow-lg">
-             <MyWishList/>
+              <MyWishList />
             </div>
           )}
 
         </div>
-
       </div>
     </div>
   );
