@@ -8,6 +8,7 @@ import ForgotPassword from './Components/ForgotPage'
 import ProductListing from './Pages/ProductListing'
 import AddToCart from './Pages/AddToCart';
 import CutomerInfoPage from './Pages/CustomerInfoPage';
+import ManageProfilePage from './Pages/AccountDashboard';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/productlisting" element={<ProductListing />} />
         <Route path="/addtocart" element={<AddToCart />} />
         <Route path="/customerpage" element={<CutomerInfoPage />} />
+        <Route path="/manageprofile" element={<ManageProfilePage />} />
       </Routes>
       <Footer />
     </BrowserRouter>

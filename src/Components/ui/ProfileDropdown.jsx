@@ -45,7 +45,7 @@ const ProfileDropdown = ({ isLoggedIn, onLogin, onSignup, onLogout }) => {
                 <>
                   <li className="flex items-center gap-3  hover:bg-gray-100 p-1 border-b border-gray-300  cursor-pointer">
                     <CgProfile className="text-xl text-black" />
-                    <span className="text-black">Manage Account</span>
+                    <a href='/manageprofile' className="text-black">Manage Account</a>
                   </li>
                   <li className="flex items-center gap-3 text-black hover:bg-gray-100 p-2  border-b border-gray-300 cursor-pointer">
                     <MdOutlineShoppingCart className="text-xl text-black" />
