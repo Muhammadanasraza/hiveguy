@@ -110,13 +110,13 @@ const Header = () => {
 
       {/* Bottom Links */}
       <div className="   mx-auto bg-gradient-to-r from-[#98164a] to-[#250b56] border-t-1 border-black">
-      <div className=" lg:w-7xl  py-2">
-        <div className="container mx-auto px-2 flex flex-col sm:flex-row items-center ">
+      <div className=" lg:w-7xl mx-auto  py-2">
+        <div className="container   px-2 flex flex-col sm:flex-row items-center ">
           {/* Category Dropdown */}
           <DropDown />
 
           {/* Bottom Links */}
-          <div className="flex flex-wrap items-center justify-center sm:justify-start gap-4 text-[13px] text-center sm:text-left">
+          <div className="flex flex-wrap items-center justify-center sm:justify-start max-sm:mt-2 gap-4 text-[13px] text-center sm:text-left">
             <a href="#" className="hover:underline">
               Track Your Order
             </a>

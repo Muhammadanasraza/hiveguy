@@ -121,7 +121,7 @@ export default function DropDown() {
           ${isOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-4"}`}
       >
         {/* Categories Sidebar */}
-        <div className="w-72 border-r border-gray-100 ">
+        <div className="lg:w-72 max-sm:w-40 border-r border-gray-100 ">
           {categories.map((category) => (
             <div
               key={category.id}
@@ -136,7 +136,7 @@ export default function DropDown() {
         </div>
 
         {/* Content Grid */}
-        <div className="flex-1 p-8 grid grid-cols-4 gap-8">
+        <div className="flex-1 p-8 grid lg:grid-cols-4 md:grid-cols-4 max-sm:grid-cols-2 gap-8">
           {activeCategory.subcategories ? (
             Object.values(activeCategory.subcategories).map((section) => (
               <div key={section.title} className="space-y-3">
