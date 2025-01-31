@@ -85,7 +85,7 @@ const FlashSale = () => {
                 {/* Products */}
                 <div className="grid md:grid-cols-2 max-sm:grid-cols-1 lg:grid-cols-3  gap-4">
                     {[...Array(6)].map((_, i) => (
-                      <div key={i} className=" bg-white rounded-lg p-3  mx-auto shadow-md max-sm:w-[300px] w-[230px] h-[270px]">
+                    <div key={i} className=" bg-white rounded-lg p-3 280px-w-[20px]  mx-auto shadow-md max-sm:w-[280] w-[230px] h-[270px]">
                               <img
                                 src={airbud}
                                 alt="RGB Keyboard"

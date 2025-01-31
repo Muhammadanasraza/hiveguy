@@ -32,7 +32,7 @@ const Banner = () => {
         <img
           src={man}
           alt="Model"
-          className=" bottom-[-50px] right-[-10px]  max-w-62 object-contain"
+          className=" bottom-[-50px] right-[-10px]  lg:max-w-62 sm:w-20 object-contain"
         />
       </div>
     </div>
