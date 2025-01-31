@@ -6,6 +6,8 @@ import { MdOutlineShoppingCart, MdFavorite, MdExitToApp, MdLogin, MdPersonAdd } 
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { MdOutlineReviews } from "react-icons/md";
 
+import avatar from '../../assets/images/avatar.jpg'
+
 const ProfileDropdown = ({ isLoggedIn, onLogin, onSignup, onLogout }) => {
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef (null)
@@ -36,8 +38,9 @@ const ProfileDropdown = ({ isLoggedIn, onLogin, onSignup, onLogout }) => {
       </button>
       {isOpen && (
         <div className="absolute right-0 mt-2 w-64 bg-white rounded-lg shadow-lg z-20">
-          <div className="p-4 border-b border-gray-200">
+          <div className="p-4 border-b flex border-gray-200 justify-between items-center">
             <h2 className="text-xl text-black font-bold">Profile</h2>
+            <img class="w-10 h-10 rounded-full mr-3 lg:hidden " src={avatar} alt="" />
           </div>
           <div className="p-4 ">
             <ul className="space-y-3">

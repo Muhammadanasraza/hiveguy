@@ -39,7 +39,7 @@ const Header = () => {
         <span className="text-lg">Welcome to HiveGY online eCommerce store.</span>
       </div>
       {/* Top Section */}
-      <div className="container max-w-7xl mx-auto px-6 py-1 sm:px-4 gap-5    flex flex-col sm:flex-row items-center justify-between">
+      <div className=" lg:max-w-7xl md:w-4/4 max-sm:w-screen mx-auto px-6 py-1 sm:px-4 sm:gap-1 lg:gap-5 md:gap-2   flex flex-col sm:flex-row items-center justify-between">
         {/* Logo */}
         <div className=" rounded-full p-2  sm:mb-0">
           <img src={avatar} alt="Logo" className="rounded-full w-10 h-10" />
@@ -75,7 +75,7 @@ const Header = () => {
               <div className="flex items-center gap-1 ">
                 <a className="flex items-center gap-1" href="/profile">
 
-                  <img class="w-10 h-10 rounded-full mr-3" src={avatar} alt="" />
+                  <img class="w-10 h-10 rounded-full mr-3 max-sm:hidden max-md:hidden" src={avatar} alt="" />
 
                
 
@@ -109,8 +109,8 @@ const Header = () => {
       </div>
 
       {/* Bottom Links */}
-      <div className="   mx-auto bg-gradient-to-r from-[#98164a] to-[#250b56] border-t-1 border-black">
-      <div className=" lg:w-7xl mx-auto  py-2">
+      <div className="  mx-auto bg-gradient-to-r from-[#98164a] to-[#250b56] border-t-1 border-black">
+      <div className="  mx-auto  py-2">
         <div className="container   px-2 flex flex-col sm:flex-row items-center ">
           {/* Category Dropdown */}
           <DropDown />
