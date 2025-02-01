@@ -1,17 +1,10 @@
-"use client"
+"use client";
 
-import { useState, useRef, useEffect } from "react"
+import { useState, useRef, useEffect } from "react";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { IoHome } from "react-icons/io5";
-import { MdOutlineWatchLater } from "react-icons/md";
 import { IoShirt } from "react-icons/io5";
 import { FiSmartphone } from "react-icons/fi";
-import { CiPen } from "react-icons/ci";
-import { FaShoppingCart } from "react-icons/fa";
-import { FaCar } from "react-icons/fa";
-import { GoBriefcase } from "react-icons/go";
-import { IoGift } from "react-icons/io5";
-
 
 const categories = [
   {
@@ -19,33 +12,9 @@ const categories = [
     label: "Home Garden",
     icon: IoHome,
     subcategories: {
-      // kitchen: {
-      //   title: "Kitchen",
-      //   items: [
-      //     "Mug Thermos",
-      //     "Basket",
-      //     "Waterproof Wall Sticker",
-      //     "Home Brewing & Wine Making Barware",
-      //     "Table Decoration & Accessories",
-      //     "Wok",
-      //   ],
-      // },
-      bathroom: {
-        title: "Bathroom",
-        items: ["Towel", "Paper Holder", ],
-      },
-      bedroom: {
-        title: "Bedroom",
-        items: ["Boxes", "Bags", "Decorative Mirrors", "Tapestries"],
-      },
-      living: {
-        title: "Living Room",
-        items: [
-          "Painting By Numbers",
-          "Hooks",
-          
-        ],
-      },
+      bathroom: { title: "Bathroom", items: ["Towel", "Paper Holder"] },
+      bedroom: { title: "Bedroom", items: ["Boxes", "Bags"] },
+      living: { title: "Living Room", items: ["Painting By Numbers", "Hooks"] },
     },
   },
   {
@@ -53,111 +22,115 @@ const categories = [
     label: "Men's Clothing",
     icon: IoShirt,
     subcategories: {
-      tops: {
-        title: "Tops",
-        items: ["T-Shirts", "Shirts", "Polo Shirts", "Hoodies", "Sweaters"],
-      },
-      bottoms: {
-        title: "Bottoms",
-        items: ["Jeans", "Trousers", "Shorts", "Sweatpants"],
-      },
+      tops: { title: "Tops", items: ["T-Shirts", "Shirts"] },
+      bottoms: { title: "Bottoms", items: ["Jeans", "Shorts"] },
     },
   },
   {
-    id: "elect  ronics",
+    id: "electronics",
     label: "Consumer Electronics",
     icon: FiSmartphone,
     subcategories: {
-      computers: {
-        title: "Computers",
-        items: ["Laptops", "Desktops", "Tablets", "Accessories"],
-      },
-      phones: {
-        title: "Phones",
-        items: ["Smartphones", "Feature Phones", "Cases", "Chargers"],
-      },
+      computers: { title: "Computers", items: ["Laptops", "Desktops"] },
+      phones: { title: "Phones", items: ["Smartphones", "Chargers"] },
     },
   },
-  { id: "accessories", label: "Accessories", icon: MdOutlineWatchLater },
-  { id: "improvement", label: "Home Improvement & Lighting", icon: CiPen },
-  { id: "appliances", label: "Home Appliances", icon: IoHome },
-  // { id: "automotive", label: "Automotive & Motorcycle", icon: FaCar },
-  // { id: "luggage", label: "Luggages & Bags", icon: FaShoppingCart },
-  // { id: "business", label: "Business & Industrial", icon: GoBriefcase },
-  // { id: "occasion", label: "Special Occasion Costume", icon: IoGift },
-]
+];
 
 export default function DropDown() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [activeCategory, setActiveCategory] = useState(categories[0])
-  const menuRef = useRef(null)
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeCategory, setActiveCategory] = useState(categories[0]);
+  const menuRef = useRef(null);
 
   useEffect(() => {
-    function handleClickOutside(event ) {
-      if (menuRef.current && !menuRef.current.contains(event.target )) {
-        setIsOpen(false)
+    function handleClickOutside(event) {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setIsOpen(false);
       }
     }
 
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => document.removeEventListener("mousedown", handleClickOutside)
-  }, [])
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
-    <div ref={menuRef} className="relative w-full  max-w-2xl mx-auto">
+    <div ref={menuRef} style={{ position: "relative", zIndex: 50, width: "100%", maxWidth: "500px", margin: "auto" }}>
       <button
-        className="flex items-center w-40  gap-2 justify-between px-4 py-1 bg-gray-300 rounded-full  border-gray-500 hover:bg-gray-200 transition-colors"
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          width: "200px",
+          justifyContent: "space-between",
+          padding: "10px",
+          backgroundColor: "#e5e7eb",
+          borderRadius: "999px",
+          border: "1px solid #9ca3af",
+          cursor: "pointer",
+          transition: "background 0.2s",
+        }}
       >
-        <span className="font-medium text-black">Category</span>
-        <RiArrowDropDownLine className={`w-4 h-4 transition-transform text-black duration-200 ${isOpen ? "rotate-180" : ""}`} />
+        <span style={{ fontWeight: "500", color: "black" }}>Category</span>
+        <RiArrowDropDownLine style={{ width: "20px", height: "20px", color: "black", transform: isOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s" }} />
       </button>
 
-      {/* Mega Menu Dropdown */}
-      <div
-        className={`absolute top-full  mt-2 bg-white rounded-2xl shadow-lg flex
-          transition-all duration-200 ease-in-out origin-top
-          ${isOpen ? "opacity-100 visible translate-y-0" : "opacity-0 invisible -translate-y-4"}`}
-      >
-        {/* Categories Sidebar */}
-        <div className="lg:w-72 max-sm:w-40 border-r border-gray-100 ">
-          {categories.map((category) => (
-            <div
-              key={category.id}
-              className={`flex items-center gap-3 px-4 py-3 hover:bg-gray-50 cursor-pointer transition-colors
-                ${activeCategory.id === category.id ? "bg-gray-100" : ""}`}
-              onClick={() => setActiveCategory(category)}
-            >
-              <category.icon className="w-5 h-5 text-gray-500" />
-              <span className="text-sm text-gray-700">{category.label}</span>
-            </div>
-          ))}
-        </div>
+      {/* Dropdown Menu */}
+      {isOpen && (
+        <div
+          style={{
+            position: "absolute",
+            top: "100%",
+            left: "0",
+            width: "100%",
+            marginTop: "5px",
+            backgroundColor: "white",
+            borderRadius: "10px",
+            boxShadow: "0px 4px 6px rgba(0,0,0,0.1)",
+            display: "flex",
+            zIndex: 100,
+          }}
+        >
+          {/* Categories List */}
+          <div style={{ width: "200px", borderRight: "1px solid #e5e7eb" }}>
+            {categories.map((category) => (
+              <div
+                key={category.id}
+                onClick={() => setActiveCategory(category)}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "10px",
+                  padding: "10px",
+                  cursor: "pointer",
+                  backgroundColor: activeCategory.id === category.id ? "#f3f4f6" : "transparent",
+                }}
+              >
+                <category.icon style={{ width: "20px", height: "20px", color: "#6b7280" }} />
+                <span style={{ fontSize: "14px", color: "#374151" }}>{category.label}</span>
+              </div>
+            ))}
+          </div>
 
-        {/* Content Grid */}
-        <div className="flex-1 p-8 grid lg:grid-cols-4 md:grid-cols-4 max-sm:grid-cols-2 gap-8">
-          {activeCategory.subcategories ? (
-            Object.values(activeCategory.subcategories).map((section) => (
-              <div key={section.title} className="space-y-3">
-                <h3 className="font-semibold text-gray-900">{section.title}</h3>
-                <div className="flex flex-col gap-2">
+          {/* Subcategories */}
+          <div style={{ flex: "1", padding: "20px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
+            {activeCategory.subcategories ? (
+              Object.values(activeCategory.subcategories).map((section) => (
+                <div key={section.title}>
+                  <h3 style={{ fontWeight: "600", color: "#111827" }}>{section.title}</h3>
                   {section.items.map((item) => (
-                    <a key={item} href="#" className="text-sm text-gray-500 hover:text-gray-900 transition-colors">
+                    <a key={item} href="#" style={{ display: "block", fontSize: "14px", color: "#6b7280", marginTop: "5px", textDecoration: "none" }}>
                       {item}
                     </a>
                   ))}
                 </div>
-              </div>
-            ))
-          ) : (
-            <div className="col-span-4 flex items-center justify-center text-gray-500">
-              No subcategories available for this category.
-            </div>
-          )}
+              ))
+            ) : (
+              <div style={{ color: "#9ca3af" }}>No subcategories available.</div>
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </div>
-  )
+  );
 }
-

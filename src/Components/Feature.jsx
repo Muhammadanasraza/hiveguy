@@ -6,7 +6,7 @@ const Features = () => {
   return (
     <div className="flex flex-wrap justify-around items-center pt-8 gap-6 lg:gap-0">
       {/* Free Returns */}
-      <div className="flex items-center space-x-3 max-w-xs">
+      <div className="flex items-center space-x-3 max-w-xs w-full sm:w-auto">
         <div className="bg-[#31035D] p-3 rounded-full flex-shrink-0">
           <IoReturnUpBackSharp className="text-white text-3xl" />
         </div>
@@ -21,7 +21,7 @@ const Features = () => {
       </div>
 
       {/* Local Stock */}
-      <div className="flex items-center space-x-3 max-w-xs">
+      <div className="flex items-center space-x-3 max-w-xs w-full sm:w-auto">
         <div className="bg-[#31035D] p-3 rounded-full flex-shrink-0">
           <FaTruck className="text-white text-3xl" />
         </div>
@@ -36,7 +36,7 @@ const Features = () => {
       </div>
 
       {/* Warranty */}
-      <div className="flex items-center space-x-3 max-w-xs">
+      <div className="flex items-center space-x-3 max-w-xs w-full sm:w-auto">
         <div className="bg-[#31035D] p-3 rounded-full flex-shrink-0">
           <FaShieldAlt className="text-white text-3xl" />
         </div>

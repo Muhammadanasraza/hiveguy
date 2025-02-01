@@ -8,7 +8,7 @@ import img3 from "../assets/images/category/img3.jpg";
 import img4 from "../assets/images/category/img4.jpg";
 import img5 from "../assets/images/category/img5.jpg";
 
-const images = [img1, img2,img3,img4,img5];
+const images = [img1, img2, img3, img4, img5];
 
 const SportswearSaleBanner = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -22,35 +22,28 @@ const SportswearSaleBanner = () => {
   };
 
   return (
-    <div className="relative mx-5 mt-6 overflow-hidden">
+    <div style={{ position: "relative", margin: "20px 0", overflow: "hidden", zIndex: 10 }}>
       {/* Left Arrow */}
-      <button
-        onClick={scrollLeft}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white p-3 rounded-full shadow-md hidden md:block"
-      >
-        <GoArrowLeft className="text-purple-700 text-xl" />
+      <button onClick={scrollLeft} style={{ position: "absolute", left: "20px", top: "50%", transform: "translateY(-50%)", background: "white", padding: "10px", borderRadius: "50%", boxShadow: "0 4px 6px rgba(0,0,0,0.1)" }}>
+        <GoArrowLeft style={{ color: "#6d28d9", fontSize: "20px" }} />
       </button>
-      
-      {/* Single Image Container with Motion */}
-      <div className="flex overflow-hidden justify-center p-4">
+
+      {/* Image */}
+      <div style={{ display: "flex", justifyContent: "center", padding: "20px" }}>
         <motion.img
           key={currentImageIndex}
           src={images[currentImageIndex]}
           alt="Sale item"
-          className="w-7xl h-[600px] object-cover rounded-xl shadow-md"
+          style={{ width: "100%", height: "400px", objectFit: "cover", borderRadius: "10px", boxShadow: "0 4px 6px rgba(0,0,0,0.1)" }}
           initial={{ opacity: 0, x: 100 }}
           animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -100 }}
           transition={{ duration: 0.5 }}
         />
       </div>
-      
+
       {/* Right Arrow */}
-      <button
-        onClick={scrollRight}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white p-3 rounded-full shadow-md hidden md:block"
-      >
-        <FiArrowRight className="text-purple-700 text-xl" />
+      <button onClick={scrollRight} style={{ position: "absolute", right: "20px", top: "50%", transform: "translateY(-50%)", background: "white", padding: "10px", borderRadius: "50%", boxShadow: "0 4px 6px rgba(0,0,0,0.1)" }}>
+        <FiArrowRight style={{ color: "#6d28d9", fontSize: "20px" }} />
       </button>
     </div>
   );

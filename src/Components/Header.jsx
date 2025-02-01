@@ -7,7 +7,7 @@ import ProfileDropdown from "./ui/ProfileDropdown";
 import { FiMenu } from "react-icons/fi";
 
 const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLogin = () => setIsLoggedIn(true);
@@ -22,11 +22,10 @@ const Header = () => {
       </div>
       
       {/* Main Header */}
-      <div className="max-w-7xl mx-auto px-6 py-2 flex flex-wrap items-center justify-between">
+      <div className="max-w-7xl mx-auto px-3 py-2 flex flex-wrap items-center justify-between">
         {/* Logo */}
         <div className="flex items-center gap-2">
           <img src={logo} alt="Logo" className="w-36 h-auto" />
-          <span className="text-xl font-bold text-gray-900">Guyana</span>
         </div>
         
         {/* Search Bar */}
@@ -110,8 +109,8 @@ const Header = () => {
       )}
       
       {/* Bottom Navigation */}
-      <div className="hidden md:block bg-gradient-to-r from-[#250b56] to-[#98164a] py-2">
-        <div className="max-w-7xl mx-auto flex flex-wrap justify-between items-center px-1">
+      <div className="hidden   md:block bg-gradient-to-r from-[#250b56] to-[#98164a] py-2">
+        <div className="max-w-6xl  mx-auto  flex flex-wrap  items-center px-1">
           <DropDown />
           <nav className="flex text-white flex-wrap gap-4 text-sm">
             <a href="#" className="">Track Your Order</a>

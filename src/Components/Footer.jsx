@@ -1,22 +1,21 @@
-import { FaYoutube, FaInstagram, FaLinkedin, FaFacebookF, FaTwitter } from "react-icons/fa"
+import { FaYoutube, FaInstagram, FaLinkedin, FaFacebookF, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
     <footer className="w-full bg-gradient-to-r from-[#f81972] to-[#2F155B] text-white py-10 px-6">
-      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <div className="  mx-auto justify-center  grid grid-cols-1 max-sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
         {/* Logo and About Section */}
         <div>
           <img src="/placeholder.svg" alt="Logo" width={64} height={64} className="mb-4 mx-auto sm:mx-0" />
           <p className="text-sm leading-6 text-center sm:text-left">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <div className="flex justify-center sm:justify-start space-x-4 mt-4">
             {[FaFacebookF, FaInstagram, FaYoutube, FaLinkedin, FaTwitter].map((Icon, index) => (
               <a
                 key={index}
                 href="#"
-                className="p-2 rounded-sm bg-[#d6d1d132]    hover:bg-yellow-300 transition-colors duration-300"
+                className="p-2 rounded-sm bg-[#d6d1d132] hover:bg-yellow-300 transition-colors duration-300"
               >
                 <Icon className="w-5 h-5 text-[#2F155B]" />
               </a>
@@ -25,7 +24,9 @@ const Footer = () => {
         </div>
 
         {/* Quick Links Section */}
-        <div>
+        <div className="flex justify-evenly lg:gap-10">
+
+        <div className="sm:col-span-2 md:col-span-1">
           <h3 className="font-bold mb-4 text-center sm:text-left">Quick Links</h3>
           <ul className="space-y-2 text-sm text-center sm:text-left">
             {["About Us", "Contact Us", "Products", "Login", "Sign Up"].map((item, index) => (
@@ -39,7 +40,7 @@ const Footer = () => {
         </div>
 
         {/* Customer Area Section */}
-        <div>
+        <div className="sm:col-span-2 md:col-span-1">
           <h3 className="font-bold mb-4 text-center sm:text-left">Customer Area</h3>
           <ul className="space-y-2 text-sm text-center sm:text-left">
             {["My Account", "Orders", "Tracking List", "Terms", "Privacy Policy", "My Cart"].map((item, index) => (
@@ -50,6 +51,7 @@ const Footer = () => {
               </li>
             ))}
           </ul>
+        </div>
         </div>
 
         {/* Contact Section */}
@@ -101,8 +103,7 @@ const Footer = () => {
         Payment Methods: VISA | MASTERCARD | PAYPAL | BITCOIN
       </div>
     </footer>
-  )
+  );
 }
 
-export default Footer
-
+export default Footer;
