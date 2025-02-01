@@ -110,7 +110,7 @@ const Header = () => {
 
       {/* Bottom Links */}
       <div className="  mx-auto bg-gradient-to-r from-[#98164a] to-[#250b56] border-t-1 border-black">
-      <div className="  mx-auto  py-2">
+      <div className=" mx-auto  py-2">
         <div className="container   px-2 flex flex-col sm:flex-row items-center ">
           {/* Category Dropdown */}
           <DropDown />
