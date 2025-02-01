@@ -1,11 +1,26 @@
+"use client"
 
-import { IoIosStar } from "react-icons/io";
+import { useState } from "react"
+import { IoIosStar } from "react-icons/io"
+import Button from "./button"
 
 export default function ProductCard({ title, price, rating, Sold, image, badges }) {
+  const [isHovering, setIsHovering] = useState(false)
+
   return (
-    <div className="bg-white p-4 mx-1 rounded-lg shadow hover:shadow-md transition-shadow">
-      <div className=" mb-4 mx-auto">
-        <img width={200} height={200} src={image} alt={title} className="object-contain  mx-auto " />
+    <div
+      className="relative bg-white p-4 mx-1 rounded-lg shadow hover:shadow-md transition-shadow"
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+    >
+      <div className="mb-4 mx-auto">
+        <img
+          width={200}
+          height={200}
+          src={image || "/placeholder.svg"}
+          alt={title}
+          className="object-contain mx-auto"
+        />
       </div>
       <div className="space-y-2">
         <h3 className="text-sm text-gray-800 line-clamp-2">{title}</h3>
@@ -27,6 +42,14 @@ export default function ProductCard({ title, price, rating, Sold, image, badges 
           <span className="text-sm text-gray-500 line-through">GYD {(price * 1.2).toLocaleString()}</span>
         </div>
       </div>
+      {isHovering && (
+        <div className="absolute inset-0 flex items-center justify-center bg-[#b9b9b9bd] bg-opacity-50 rounded-lg transition-opacity duration-300">
+          <Button variant="secondary" size="sm">
+            Preview
+          </Button>
+        </div>
+      )}
     </div>
-  );
+  )
 }
+

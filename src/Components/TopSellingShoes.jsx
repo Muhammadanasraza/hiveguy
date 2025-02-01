@@ -17,7 +17,7 @@ const products = [
     badges: ["Free Shipping", "COD"],
   },
   {
-    id: 1,
+    id: 2,
     title: "For Original ww38 M47 Wireless Smartwatch",
     price: 2903,
     rating: 4,
@@ -26,7 +26,7 @@ const products = [
     badges: ["Free Shipping", "COD"],
   },
   {
-    id: 1,
+    id: 3,
     title: "For Original ww38 M47 Wireless Smartwatch",
     price: 2903,
     rating: 4,
@@ -35,7 +35,7 @@ const products = [
     badges: ["Free Shipping", "COD"],
   },
   {
-    id: 1,
+    id: 4,
     title: "For Original ww38 M47 Wireless Smartwatch",
     price: 2903,
     rating: 4,
