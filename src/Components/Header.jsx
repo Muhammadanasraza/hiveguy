@@ -68,7 +68,7 @@ const Header = () => {
             <a href="/authpage" className="hidden md:inline hover:underline">Login</a>
           )}
           
-          <a href="/cart" className="relative">
+          <a href="/addtocart" className="relative">
             <MdOutlineShoppingCart className="text-3xl" />
             <span className="absolute -top-2 -right-2 bg-yellow-400 text-xs text-black rounded-full px-1">
               3
