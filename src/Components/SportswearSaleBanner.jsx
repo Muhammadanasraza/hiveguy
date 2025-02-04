@@ -22,7 +22,7 @@ const SportswearSaleBanner = () => {
   };
 
   return (
-    <div style={{ position: "relative", margin: "20px 0", overflow: "hidden", zIndex: 10 }}>
+    <div className="it" style={{ position: "relative", margin: "0 0", overflow: "hidden", zIndex: 10 }}>
       {/* Left Arrow */}
       <button onClick={scrollLeft} style={{ position: "absolute", left: "20px", top: "50%", transform: "translateY(-50%)", background: "white", padding: "10px", borderRadius: "50%", boxShadow: "0 4px 6px rgba(0,0,0,0.1)" }}>
         <GoArrowLeft style={{ color: "#6d28d9", fontSize: "20px" }} />

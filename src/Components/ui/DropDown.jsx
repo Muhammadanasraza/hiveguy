@@ -51,7 +51,7 @@ export default function DropDown() {
   }, []);
 
   return (
-    <div ref={menuRef} className="relative w-full max-w-xs mx-auto">
+    <div ref={menuRef} className="relative w-full max-w-[150px] max-sm:mx-auto">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="flex items-center w-full justify-between px-4 py-2 bg-gray-200 rounded-full border border-gray-400 cursor-pointer transition duration-200"

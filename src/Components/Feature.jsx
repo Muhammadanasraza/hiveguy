@@ -4,17 +4,17 @@ import { IoReturnUpBackSharp } from "react-icons/io5";
 
 const Features = () => {
   return (
-    <div className="flex flex-wrap justify-around items-center pt-8 gap-6 lg:gap-0">
+    <div className="flex flex-wrap justify-around items-center pt-4 gap-6 lg:gap-0">
       {/* Free Returns */}
       <div className="flex items-center space-x-3 max-w-xs w-full sm:w-auto">
         <div className="bg-[#31035D] p-3 rounded-full flex-shrink-0">
-          <IoReturnUpBackSharp className="text-white text-3xl" />
+          <IoReturnUpBackSharp className="text-white text-1xl" />
         </div>
         <div>
-          <h3 className="text-purple-800 font-semibold text-lg text-center md:text-left">
+          <h3 className="text-purple-800 font-semibold text-sm text-center md:text-left">
             FREE RETURNS
           </h3>
-          <p className="text-gray-600 text-sm text-center md:text-left">
+          <p className="text-gray-600 text-[11px] text-center md:text-left">
             Within 7 Days
           </p>
         </div>
@@ -23,13 +23,13 @@ const Features = () => {
       {/* Local Stock */}
       <div className="flex items-center space-x-3 max-w-xs w-full sm:w-auto">
         <div className="bg-[#31035D] p-3 rounded-full flex-shrink-0">
-          <FaTruck className="text-white text-3xl" />
+          <FaTruck className="text-white text-1xl" />
         </div>
         <div>
-          <h3 className="text-purple-800 font-semibold text-lg text-center md:text-left">
+          <h3 className="text-purple-800 font-semibold text-sm text-center md:text-left">
             LOCAL STOCK
           </h3>
-          <p className="text-gray-600 text-sm text-center md:text-left">
+          <p className="text-gray-600 text-[11px] text-center md:text-left">
             Ships in 24hrs
           </p>
         </div>  
@@ -38,13 +38,13 @@ const Features = () => {
       {/* Warranty */}
       <div className="flex items-center space-x-3 max-w-xs w-full sm:w-auto">
         <div className="bg-[#31035D] p-3 rounded-full flex-shrink-0">
-          <FaShieldAlt className="text-white text-3xl" />
+          <FaShieldAlt className="text-white text-1xl" />
         </div>
         <div>
-          <h3 className="text-purple-800 font-semibold text-lg text-center md:text-left">
+          <h3 className="text-purple-800 font-semibold text-sm text-center md:text-left">
             WARRANTY
           </h3>
-          <p className="text-gray-600 text-sm text-center md:text-left">
+          <p className="text-gray-600 text-[11px] text-center md:text-left">
             Within 7 Days
           </p>
         </div>

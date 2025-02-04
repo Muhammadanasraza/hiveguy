@@ -113,7 +113,7 @@ const Header = () => {
 
       {/* Categories Section (Visible on all screens) */}
       <div className="bg-gradient-to-r from-[#250b56] to-[#98164a] py-2">
-        <div className="max-w-6xl mx-auto flex items-center px-4 flex-wrap gap-4 text-white text-sm">
+        <div className="max-w-7xl justify-between mx-auto flex items-center px-4 flex-wrap gap-4 text-white text-sm">
           <DropDown />
           <nav className="flex flex-wrap gap-4 max-sm:hidden">
             <a href="#">Track Your Order</a>
