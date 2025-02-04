@@ -15,9 +15,9 @@ const Banner = () => {
       >
         {/* Discount Text Section */}
         <div className="text-white">
-          <img className="w-70 pb-3" src={p70} alt="" />
+          <img className="w-70 pb-3 max-sm:w-20" src={p70} alt="" />
           <img src={up} alt="" />
-          <img className="w-60 pl-10" src={sale} alt="" />
+          <img className="w-60 pl-10 " src={sale} alt="" />
         </div>
 
         {/* Shoe Image */}
@@ -32,7 +32,7 @@ const Banner = () => {
         <img
           src={man}
           alt="Model"
-          className=" bottom-[-50px] right-[-10px]  lg:max-w-62 sm:w-20 object-contain"
+          className=" bottom-[-50px] max-sm:hidden right-[-10px]  lg:max-w-62 sm:w-20 object-contain"
         />
       </div>
     </div>

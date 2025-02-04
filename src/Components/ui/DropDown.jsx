@@ -1,5 +1,3 @@
-"use client";
-
 import { useState, useRef, useEffect } from "react";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { IoHome } from "react-icons/io5";
@@ -48,85 +46,54 @@ export default function DropDown() {
         setIsOpen(false);
       }
     }
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   return (
-    <div ref={menuRef} style={{ position: "relative", zIndex: 50, width: "100%", maxWidth: "500px", margin: "auto" }}>
+    <div ref={menuRef} className="relative w-full max-w-xs mx-auto">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        aria-expanded={isOpen}
-        style={{
-          display: "flex",
-          alignItems: "center",
-          width: "200px",
-          justifyContent: "space-between",
-          padding: "10px",
-          backgroundColor: "#e5e7eb",
-          borderRadius: "999px",
-          border: "1px solid #9ca3af",
-          cursor: "pointer",
-          transition: "background 0.2s",
-        }}
+        className="flex items-center w-full justify-between px-4 py-2 bg-gray-200 rounded-full border border-gray-400 cursor-pointer transition duration-200"
       >
-        <span style={{ fontWeight: "500", color: "black" }}>Category</span>
-        <RiArrowDropDownLine style={{ width: "20px", height: "20px", color: "black", transform: isOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s" }} />
+        <span className="font-medium text-black">Category</span>
+        <RiArrowDropDownLine
+          className={`w-6 h-6 text-black transition-transform duration-200 ${isOpen ? "rotate-180" : "rotate-0"}`}
+        />
       </button>
 
-      {/* Dropdown Menu */}
       {isOpen && (
-        <div
-          style={{
-            position: "absolute",
-            top: "100%",
-            left: "0",
-            width: "100%",
-            marginTop: "5px",
-            backgroundColor: "white",
-            borderRadius: "10px",
-            boxShadow: "0px 4px 6px rgba(0,0,0,0.1)",
-            display: "flex",
-            zIndex: 100,
-          }}
-        >
-          {/* Categories List */}
-          <div style={{ width: "200px", borderRight: "1px solid #e5e7eb" }}>
+        <div className="absolute left-0 top-full max-sm:w-full w-2xl mt-2 bg-white rounded-lg shadow-lg z-50 flex border border-gray-200">
+          <div className="w-40 max-sm:w-32 border-r border-gray-200">
             {categories.map((category) => (
               <div
                 key={category.id}
                 onClick={() => setActiveCategory(category)}
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "10px",
-                  padding: "10px",
-                  cursor: "pointer",
-                  backgroundColor: activeCategory.id === category.id ? "#f3f4f6" : "transparent",
-                }}
+                className={`flex items-center gap-2 px-4 py-2 cursor-pointer transition duration-200 ${activeCategory.id === category.id ? "bg-gray-100" : "hover:bg-gray-50"}`}
               >
-                <category.icon style={{ width: "20px", height: "20px", color: "#6b7280" }} />
-                <span style={{ fontSize: "14px", color: "#374151" }}>{category.label}</span>
+                <category.icon className="w-5 h-5 text-gray-600" />
+                <span className="text-gray-800 text-sm">{category.label}</span>
               </div>
             ))}
           </div>
-
-          {/* Subcategories */}
-          <div style={{ flex: "1", padding: "20px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
+          <div className="flex-1 p-4 grid grid-cols-2 gap-4">
             {activeCategory.subcategories ? (
               Object.values(activeCategory.subcategories).map((section) => (
                 <div key={section.title}>
-                  <h3 style={{ fontWeight: "600", color: "#111827" }}>{section.title}</h3>
+                  <h3 className="font-semibold text-gray-900">{section.title}</h3>
                   {section.items.map((item) => (
-                    <a key={item} href="#" style={{ display: "block", fontSize: "14px", color: "#6b7280", marginTop: "5px", textDecoration: "none" }}>
+                    <a
+                      key={item}
+                      href="#"
+                      className="block text-sm text-gray-600 mt-1 hover:text-gray-900"
+                    >
                       {item}
                     </a>
                   ))}
                 </div>
               ))
             ) : (
-              <div style={{ color: "#9ca3af" }}>No subcategories available.</div>
+              <div className="text-gray-500">No subcategories available.</div>
             )}
           </div>
         </div>

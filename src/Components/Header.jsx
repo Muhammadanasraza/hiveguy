@@ -1,123 +1,91 @@
 import React, { useState } from "react";
 import { MdOutlineShoppingCart } from "react-icons/md";
+import { FiMenu, FiX } from "react-icons/fi";
 import avatar from "../assets/images/avatar.jpg";
 import logo from "../assets/images/logo-light.png";
 import DropDown from "./ui/DropDown";
 import ProfileDropdown from "./ui/ProfileDropdown";
-import { FiMenu } from "react-icons/fi";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  const handleLogin = () => setIsLoggedIn(true);
-  const handleSignup = () => setIsLoggedIn(true);
-  const handleLogout = () => setIsLoggedIn(false);
-  
   return (
-    <header className="bg-white text-black w-full">
+    <header className="bg-white shadow-md w-full">
       {/* Top Bar */}
-      <div className="text-center p-1 text-sm font-semibold text-white bg-gradient-to-r from-[#98164a] to-[#250b56]">
+      <div className="text-center p-2 text-sm font-semibold text-white bg-gradient-to-r from-[#98164a] to-[#250b56]">
         Welcome to Hive Guyana - Shop With Convenience
       </div>
-      
+
       {/* Main Header */}
-      <div className="max-w-7xl mx-auto px-3 py-2 flex flex-wrap items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
         {/* Logo */}
-        <div className="flex items-center gap-2">
-          <img src={logo} alt="Logo" className="w-36 h-auto" />
-        </div>
-        
+        <img src={logo} alt="Logo" className="w-36" />
+
         {/* Search Bar */}
-        <div className="hidden md:flex w-full sm:w-auto flex-1 justify-center max-w-xl">
+        <div className="hidden md:flex flex-1 max-w-xl">
           <input
             type="text"
             placeholder="Search in HiveGY"
-            className="w-full px-4 py-2 rounded-l-md border bg-white text-gray-600 border-gray-300 outline-none"
+            className="w-full px-4 py-2 border border-gray-300 rounded-l-md outline-none"
           />
           <button className="bg-yellow-400 text-black px-4 py-2 rounded-r-md font-semibold hover:bg-yellow-300">
             Search
           </button>
         </div>
-        
+
         {/* User Actions */}
         <div className="flex items-center gap-4">
-          <div className="hidden md:flex items-center gap-2">
-            <img
-              src="https://upload.wikimedia.org/wikipedia/commons/9/99/Flag_of_Guyana.svg"
-              alt="Guyana Flag"
-              className="w-6 h-4"
-            />
-            <select className="bg-transparent border-none text-black outline-none">
-              <option>English-US</option>
-              <option>English-UK</option>
-            </select>
-          </div>
           {isLoggedIn ? (
             <div className="hidden md:flex items-center gap-2">
               <img className="w-10 h-10 rounded-full" src={avatar} alt="Profile" />
-              <span>Cheddi Jagan</span>
-              <ProfileDropdown
-                isLoggedIn={isLoggedIn}
-                onLogin={handleLogin}
-                onSignup={handleSignup}
-                onLogout={handleLogout}
-              />
+              <ProfileDropdown isLoggedIn={isLoggedIn} onLogout={() => setIsLoggedIn(false)} />
             </div>
           ) : (
-            <a href="/authpage" className="hidden md:inline hover:underline">Login</a>
+            <a href="/authpage" className="hidden md:block hover:underline">Login</a>
           )}
-          
+
+          {/* Shopping Cart */}
           <a href="/addtocart" className="relative">
             <MdOutlineShoppingCart className="text-3xl" />
-            <span className="absolute -top-2 -right-2 bg-yellow-400 text-xs text-black rounded-full px-1">
-              3
-            </span>
+            <span className="absolute -top-2 -right-2 bg-yellow-400 text-xs text-black rounded-full px-1">3</span>
           </a>
-          
+
           {/* Mobile Menu Toggle */}
-          <button className="md:hidden" onClick={() => setMenuOpen(!menuOpen)}>
+          <button className="md:hidden" onClick={() => setSidebarOpen(true)}>
             <FiMenu className="text-3xl" />
           </button>
         </div>
       </div>
-      
-      {/* Mobile Search Bar */}
-      <div className="md:hidden px-4 pb-2">
-        <input
-          type="text"
-          placeholder="Search in HiveGY"
-          className="w-full px-4 py-2 rounded-l-md border bg-white text-gray-600 border-gray-300 outline-none"
-        />
-        <button className="bg-yellow-400 text-black px-4 py-2 rounded-r-md font-semibold w-full mt-2">
-          Search
-        </button>
-      </div>
-      
-      {/* Mobile Menu */}
-      {menuOpen && (
-        <div className="md:hidden bg-white shadow-md p-4">
-          <nav className="flex flex-col gap-2 text-black text-sm">
-            <a href="#" className="py-1">Track Your Order</a>
-            <a href="#" className="py-1">Become a Seller</a>
-            <a href="#" className="py-1">HiveGY Affiliate Program</a>
-            <a href="#" className="py-1">Help & Support</a>
-            <a href="#" className="py-1">Get the app</a>
+
+      {/* Mobile Sidebar with Animation */}
+      <div className={`fixed inset-0 bg-black bg-opacity-50 z-50 transition-opacity ${sidebarOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`} onClick={() => setSidebarOpen(false)}>
+        <div className={`absolute right-0 w-64 bg-white h-full shadow-lg p-4 transform transition-transform ${sidebarOpen ? 'translate-x-0' : 'translate-x-full'}`} onClick={(e) => e.stopPropagation()}>
+          <button className="text-2xl mb-4" onClick={() => setSidebarOpen(false)}>
+            <FiX />
+          </button>
+          <nav className="flex flex-col gap-4 text-gray-800">
+            <a href="#">Track Your Order</a>
+            <a href="#">Become a Seller</a>
+            <a href="#">HiveGY Affiliate Program</a>
+            <a href="#">Help & Support</a>
+            <a href="#">Get the App</a>
+            {!isLoggedIn && <a href="/authpage" className="bg-yellow-400 text-center p-2 rounded-md">Login</a>}
           </nav>
-          {!isLoggedIn && <a href="/authpage" className="block text-center py-2 mt-2 bg-yellow-400 text-black rounded-md">Login</a>}
         </div>
-      )}
-      
-      {/* Bottom Navigation */}
-      <div className="hidden   md:block bg-gradient-to-r from-[#250b56] to-[#98164a] py-2">
-        <div className="max-w-6xl  mx-auto  flex flex-wrap  items-center px-1">
+      </div>
+
+      {/* Categories Section (Visible on all screens) */}
+      <div className="bg-gradient-to-r from-[#250b56] to-[#98164a] py-2">
+        <div className="max-w-6xl mx-auto flex items-center px-4 flex-wrap gap-4 text-white text-sm ">
           <DropDown />
-          <nav className="flex text-white flex-wrap gap-4 text-sm">
-            <a href="#" className="">Track Your Order</a>
-            <a href="#" className="">Become a Seller</a>
-            <a href="#" className="">HiveGY Affiliate Program</a>
-            <a href="#" className="">Help & Support</a>
-            <a href="#" className="">Get the app</a>
+          <nav className="flex flex-wrap gap-4 max-sm:hidden">
+            <a href="#">Track Your Order</a>
+            <a href="#">Become a Seller</a>
+            <a href="#">HiveGY Affiliate Program</a>
+            <a href="#">Help & Support</a>
+            <a href="#">Get the App</a>
           </nav>
         </div>
       </div>
