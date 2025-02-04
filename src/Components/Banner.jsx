@@ -17,7 +17,7 @@ const Banner = () => {
         <div className="text-white">
           <img className="w-70 pb-3 max-sm:w-20" src={p70} alt="" />
           <img src={up} alt="" />
-          <img className="w-60 pl-10 " src={sale} alt="" />
+          <img className="w-60 pl-10" src={sale} alt="" />
         </div>
 
         {/* Shoe Image */}
