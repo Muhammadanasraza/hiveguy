@@ -32,7 +32,7 @@ const Features = () => {
           <p className="text-gray-600 text-sm text-center md:text-left">
             Ships in 24hrs
           </p>
-        </div>
+        </div>  
       </div>
 
       {/* Warranty */}
