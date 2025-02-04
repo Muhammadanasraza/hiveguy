@@ -14,12 +14,12 @@ const Header = () => {
   return (
     <header className="bg-white shadow-md w-full">
       {/* Top Bar */}
-      <div className="text-center p-2 text-sm font-semibold text-white bg-gradient-to-r from-[#98164a] to-[#250b56]">
+      <div className="text-center p-2 text-sm max-sm:text-[12px] font-semibold text-white bg-gradient-to-r from-[#98164a] to-[#250b56]">
         Welcome to Hive Guyana - Shop With Convenience
       </div>
 
       {/* Main Header */}
-      <div className="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 py-1 flex items-center justify-between">
         {/* Logo */}
         <img src={logo} alt="Logo" className="w-36" />
 
@@ -60,7 +60,7 @@ const Header = () => {
       </div>
 
       {/* Mobile Sidebar with Animation */}
-      <div className={`fixed inset-0 bg-black bg-opacity-50 z-50 transition-opacity ${sidebarOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`} onClick={() => setSidebarOpen(false)}>
+      <div className={`fixed inset-0 bg-[#4a4a4b73] bg-opacity-50 z-50 transition-opacity ${sidebarOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`} onClick={() => setSidebarOpen(false)}>
         <div className={`absolute right-0 w-64 bg-white h-full shadow-lg p-4 transform transition-transform ${sidebarOpen ? 'translate-x-0' : 'translate-x-full'}`} onClick={(e) => e.stopPropagation()}>
           <button className="text-2xl mb-4" onClick={() => setSidebarOpen(false)}>
             <FiX />
