@@ -2,7 +2,7 @@ import vector from "../assets/images/Vector.png"
 
 const NewsletterSignup = () => {
   return (
-    <div className="bg-[#321159] my-6 sm:my-10 mx-4 sm:mx-auto max-w-7xl text-white py-6 px-4 sm:px-6 rounded-lg">
+    <div className="bg-[#321159] my-6 sm:my-10 mx-4 sm:mx-auto max-w-7xl text-white py-6 px-4 sm:px-6 rounded-2xl">
       <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
         {/* Left Section - Icon and Text */}
         <div className="flex flex-col sm:flex-row items-center text-center sm:text-left gap-4 sm:gap-6">

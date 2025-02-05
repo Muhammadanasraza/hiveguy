@@ -1,4 +1,4 @@
- 
+
 import { useState } from "react"
 import { IoIosStar } from "react-icons/io"
 import Button from "./button"
@@ -43,9 +43,12 @@ export default function ProductCard({ title, price, rating, Sold, image, badges 
       </div>
       {isHovering && (
         <div className="absolute inset-0 flex items-center justify-center bg-[#2e2d2d84] bg-opacity-50 rounded-lg transition-opacity duration-200">
-          <Button variant="secondary" size="sm">
-            Preview
-          </Button>
+          <a href="/addtocart">
+
+            <Button variant="secondary" size="sm">
+              Preview
+            </Button>
+          </a>
         </div>
       )}
     </div>
