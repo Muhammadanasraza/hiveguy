@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router";
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -48,9 +49,9 @@ const AuthPage = () => {
             </div>
 
             <div className="text-right">
-              <a href="authpage/forgotpage" className="text-sm text-pink-500 hover:underline">
+              <Link to="/authpage/forgotpage" className="text-sm text-pink-500 hover:underline">
                 Forgot Password?
-              </a>
+              </Link>
             </div>
 
             <button

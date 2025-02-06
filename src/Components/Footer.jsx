@@ -1,4 +1,5 @@
 import { FaYoutube, FaInstagram, FaLinkedin, FaFacebookF, FaTwitter } from "react-icons/fa";
+import { Link } from "react-router";
 import logo from "../assets/images/logo-light.png";
 
 const Footer = () => {
@@ -13,19 +14,19 @@ const Footer = () => {
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <div className="flex justify-center sm:justify-start space-x-4 mt-4">
-            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-sm bg-[#d6d1d132] hover:bg-yellow-300  transition-colors duration-300">
+            <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-sm bg-[#d6d1d132] hover:bg-yellow-400 transition-colors duration-300">
               <FaFacebookF className="w-5 h-5 text-[#2F155B]" />
             </a>
-            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-sm bg-[#d6d1d132] hover:bg-yellow-300 transition-colors duration-300">
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-sm bg-[#d6d1d132] hover:bg-yellow-400 transition-colors duration-300">
               <FaInstagram className="w-5 h-5 text-[#2F155B]" />
             </a>
-            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-sm bg-[#d6d1d132] hover:bg-yellow-300 transition-colors duration-300">
+            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-sm bg-[#d6d1d132] hover:bg-yellow-400 transition-colors duration-300">
               <FaYoutube className="w-5 h-5 text-[#2F155B]" />
             </a>
-            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-sm bg-[#d6d1d132] hover:bg-yellow-300 transition-colors duration-300">
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-sm bg-[#d6d1d132] hover:bg-yellow-400 transition-colors duration-300">
               <FaLinkedin className="w-5 h-5 text-[#2F155B]" />
             </a>
-            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-sm bg-[#d6d1d132] hover:bg-yellow-300 transition-colors duration-300">
+            <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-sm bg-[#d6d1d132] hover:bg-yellow-400 transition-colors duration-300">
               <FaTwitter className="w-5 h-5 text-[#2F155B]" />
             </a>
           </div>
@@ -36,11 +37,11 @@ const Footer = () => {
           <div>
             <h3 className="font-bold mb-4 text-center sm:text-left">Quick Links</h3>
             <ul className="space-y-2 text-sm text-center sm:text-left">
-              <li><a href="/about" className="hover:underline">About Us</a></li>
-              <li><a href="/contact" className="hover:underline">Contact Us</a></li>
-              <li><a href="/products" className="hover:underline">Products</a></li>
-              <li><a href="/authpage" className="hover:underline">Login</a></li>
-              <li><a href="/authpage" className="hover:underline">Sign Up</a></li>
+              <li><Link to="/about" className="hover:text-gray-300">About Us</Link></li>
+              <li><Link to="/contact" className="hover:text-gray-300">Contact Us</Link></li>
+              <li><Link to="/products" className="hover:text-gray-300">Products</Link></li>
+              <li><Link to="/authpage" className="hover:text-gray-300">Login</Link></li>
+              <li><Link to="/authpage" className="hover:text-gray-300">Sign Up</Link></li>
             </ul>
           </div>
 
@@ -48,12 +49,12 @@ const Footer = () => {
           <div>
             <h3 className="font-bold mb-4 text-center sm:text-left">Customer Area</h3>
             <ul className="space-y-2 text-sm text-center sm:text-left">
-              <li><a href="/customerpage" className="hover:underline">My Account</a></li>
-              <li><a href="/orders" className="hover:underline">Orders</a></li>
-              <li><a href="/tracking" className="hover:underline">Tracking List</a></li>
-              <li><a href="/terms" className="hover:underline">Terms</a></li>
-              <li><a href="/privacy" className="hover:underline">Privacy Policy</a></li>
-              <li><a href="/addtocart" className="hover:underline">My Cart</a></li>
+              <li><Link to="/customerpage" className="hover:text-gray-300">My Account</Link></li>
+              <li><Link to="/orders" className="hover:text-gray-300">Orders</Link></li>
+              <li><Link to="/tracking" className="hover:text-gray-300">Tracking List</Link></li>
+              <li><Link to="/terms" className="hover:text-gray-300">Terms</Link></li>
+              <li><Link to="/privacy" className="hover:text-gray-300">Privacy Policy</Link></li>
+              <li><Link to="/addtocart" className="hover:text-gray-300">My Cart</Link></li>
             </ul>
           </div>
         </div>

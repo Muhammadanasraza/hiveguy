@@ -35,7 +35,7 @@ const FlashSale = () => {
     }
 
     return (
-        <div className="flex flex-col lg:flex-row mt-10 max-w-7xl  mx-auto max-sm:mx-2 rounded-4xl bg-white gap-4 px- ">
+        <div className="flex flex-col lg:flex-row mt-10 max-w-7xl  mx-auto max-sm:mx-2 rounded-4xl bg-white gap-4  ">
             {/* Flash Sale Section */}
             <div className="w-full lg:w-2/5 bg-white shadow-md rounded-lg">
                 <h2 className="text-white p-3 bg-gradient-to-r from-[#F81972] to-[#2F155B] font-bold text-2xl mb-4">
@@ -62,11 +62,11 @@ const FlashSale = () => {
                         <p className="mt-2 font-bold text-gray-700">Tablet Red EliteBook Revolve</p>
                     </div>
                     {/* Image */}
-                    <div className="flex justify-center my-4">
+                    <div className="flex justify-center my-10">
                         <img
                             src={laptop || "/placeholder.svg"}
                             alt="Tablet Red EliteBook Revolve"
-                            className="w-70 h-70 object-contain"
+                            className="w-60 h-70 object-contain"
                         />
                     </div>
                     {/* Countdown Timer */}
@@ -97,7 +97,7 @@ const FlashSale = () => {
             {/* Product Cards Section */}
             <div className="w-full lg:w-3/5">
                 {/* Tabs */}
-                <div className="flex justify-between p-5  lg:justify-end  border-b border-gray-300 mb-4 overflow-x-auto scrollbar-hide">
+                <div className="flex justify-between p-2  lg:justify-end  border-b border-gray-300 mb-4 overflow-x-auto scrollbar-hide">
                     {["Featured", "On Sale", "Top Rated"].map((tab) => (
                         <button
                             key={tab}

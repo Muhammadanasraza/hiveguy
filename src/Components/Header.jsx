@@ -6,6 +6,7 @@ import logo from "../assets/images/logo-light.png"
 import DropDown from "./ui/DropDown"
 import ProfileDropdown from "./ui/ProfileDropdown"
 import CountryDropdown from "./CountryDropDown"
+import { Link } from "react-router"
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true)
@@ -22,7 +23,9 @@ const Header = () => {
       {/* Main Header */}
       <div className="max-w-7xl mx-auto px-4 py-1 flex items-center justify-between">
         {/* Logo */}
+        <Link to='/'>
         <img src={logo || "/placeholder.svg"} alt="Logo" className="w-40 max-sm:w-30" />
+        </Link>
 
         {/* Search Bar (hidden on small screens) */}
         <div className="hidden md:flex flex-1 max-w-xl">
@@ -45,17 +48,17 @@ const Header = () => {
               <h1>hiveguy</h1>
               <ProfileDropdown isLoggedIn={isLoggedIn} onLogout={() => setIsLoggedIn(false)} />
             </div>
-          ) : (
-            <a href="/authpage" className="hidden md:block hover:underline">
+          ) : ( 
+            <Link to="/authpage" className="hidden md:block hover:underline">
               Login
-            </a>
+            </Link>
           )}
 
           {/* Shopping Cart */}
-          <a href="/addtocart" className="relative">
+          <Link to="/addtocart" className="relative">
             <MdOutlineShoppingCart className="text-3xl max-sm:text-2xl" />
             <span className="absolute -top-2 -right-2 bg-yellow-400 text-xs text-black rounded-full px-1">3</span>
-          </a>
+          </Link>
 
           {/* Small Screen Search Toggle */}
           <button className="md:hidden" onClick={() => setSearchOpen(!searchOpen)}>

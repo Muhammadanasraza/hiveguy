@@ -1,12 +1,13 @@
 import React from "react";
+import { Link } from "react-router";
 
 const ForgotPassword = () => {
   return (
     <div className="flex justify-center items-center px-3 min-h-screen bg-gray-100">
       <div className="bg-white px-2 py-7 rounded-2xl shadow-lg w-xl">
-        <a href="/authpage" className="text-gray-500 mb-4 flex items-center">
+        <Link to="/authpage" className="text-gray-500 mb-4 flex items-center">
           &larr; Go back
-        </a>
+        </Link>
         <div className="px-5">
 
         

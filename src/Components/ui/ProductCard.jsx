@@ -2,6 +2,7 @@
 import { useState } from "react"
 import { IoIosStar } from "react-icons/io"
 import Button from "./button"
+import { Link } from "react-router"
 
 export default function ProductCard({ title, price, rating, Sold, image, badges }) {
   const [isHovering, setIsHovering] = useState(false)
@@ -43,12 +44,12 @@ export default function ProductCard({ title, price, rating, Sold, image, badges 
       </div>
       {isHovering && (
         <div className="absolute inset-0 flex items-center justify-center bg-[#2e2d2d84] bg-opacity-50 rounded-lg transition-opacity duration-200">
-          <a href="/addtocart">
+          <Link to="/addtocart">
 
             <Button variant="secondary" size="sm">
               Preview
             </Button>
-          </a>
+          </Link>
         </div>
       )}
     </div>

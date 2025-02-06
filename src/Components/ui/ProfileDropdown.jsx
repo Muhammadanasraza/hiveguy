@@ -7,6 +7,7 @@ import { RiArrowDropDownLine } from "react-icons/ri";
 import { MdOutlineReviews } from "react-icons/md";
 
 import avatar from '../../assets/images/avatar.jpg'
+import { Link } from "react-router";
 
 const ProfileDropdown = ({ isLoggedIn, onLogin, onSignup, onLogout }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -46,9 +47,9 @@ const ProfileDropdown = ({ isLoggedIn, onLogin, onSignup, onLogout }) => {
             <ul className="space-y-3">
               {isLoggedIn ? (
                 <>
-                  <li className="flex items-center gap-3  hover:bg-gray-100 p-1 border-b border-gray-300  cursor-pointer">
+                  <li className="flex items-center gap-3  hover:bg-gray-100 p-2 border-b border-gray-300  cursor-pointer">
                     <CgProfile className="text-xl text-black" />
-                    <a href='/manageprofile' className="text-black">Manage Account</a>
+                    <Link to='/manageprofile' className="text-black">Manage Account</Link>
                   </li>
                   <li className="flex items-center gap-3 text-black hover:bg-gray-100 p-2  border-b border-gray-300 cursor-pointer">
                     <MdOutlineShoppingCart className="text-xl text-black" />
