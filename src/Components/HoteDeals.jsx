@@ -6,9 +6,9 @@ import fly from "../assets/images/fly.png"
 
 const HotDeals = () => {
     return (
-        <div className="p-8">
+        <div className="p-8 ">
             <h2 className="text-3xl font-bold mb-6">Hot deals</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1  md:grid-cols-3  ">
                 {/* Phone Deal */}
                 <div className="my-auto">
                     <img
@@ -41,18 +41,18 @@ const HotDeals = () => {
                         <img
                             src={fly}
                             alt="Shopping"
-                            className="w-30 h-30 mt-5  text-left "
+                            className="w-full lg:h-40 mt-2  text-left "
                         />
                        </h1>
                        </div>
                     </div>
 
                     {/* Laptop Deal */}
-                    <div className="bg-black text-white rounded-2xl p-2 shadow-lg overflow-hidden">
+                    <div className=" rounded-2xl shadow-lg   overflow-hidden">
                         <img
                             src={blackLaptop}
                             alt="Laptop"
-                            className="w-full h-48 object-cover opacity-100"
+                            className="w-full h-60   opacity-100"
                         />
                         <div className=" bottom-4 left-4 text-xl font-bold"></div>
                     </div>

@@ -66,7 +66,7 @@ const FlashSale = () => {
                         <img
                             src={laptop || "/placeholder.svg"}
                             alt="Tablet Red EliteBook Revolve"
-                            className="w-80 h-80 object-contain"
+                            className="w-70 h-70 object-contain"
                         />
                     </div>
                     {/* Countdown Timer */}
@@ -110,7 +110,7 @@ const FlashSale = () => {
                     ))}
                 </div>
                 {/* Products */}
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">{renderProducts()}</div>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 px-10 py-5">{renderProducts()}</div>
                 {/* View All Button */}
                 <div className="flex justify-center mt-6">
                     <Button className="w-full sm:w-auto">View All</Button>
