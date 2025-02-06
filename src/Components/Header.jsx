@@ -8,7 +8,7 @@ import ProfileDropdown from "./ui/ProfileDropdown"
 import CountryDropdown from "./CountryDropDown"
 
 const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [isLoggedIn, setIsLoggedIn] = useState(true)
   const [sidebarOpen, setSidebarOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
 
@@ -40,8 +40,9 @@ const Header = () => {
         <div className="flex items-center gap-2">
           <CountryDropdown />
           {isLoggedIn ? (
-            <div className="hidden md:flex items-center gap-2">
+            <div className="hidden md:flex items-center gap-1">
               <img className="w-10 h-10 rounded-full" src={avatar || "/placeholder.svg"} alt="Profile" />
+              <h1>hiveguy</h1>
               <ProfileDropdown isLoggedIn={isLoggedIn} onLogout={() => setIsLoggedIn(false)} />
             </div>
           ) : (
