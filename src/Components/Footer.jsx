@@ -5,9 +5,9 @@ import logo from "../assets/images/logo-light.png"
 const Footer = () => {
   return (
     <footer className="w-full   bg-gradient-to-r from-[#f81972] to-[#2F155B] text-white py-10 px-6">
-      <div className="  mx-auto justify-center  grid grid-cols-1 max-sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
+      <div className="  max-w-7xl mx-auto justify-center  grid grid-cols-1 max-sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
         {/* Logo and About Section */}
-        <div>
+        <div >
           <img src={logo} alt="Logo" width={150} height={150} className="mb-4 mx-auto sm:mx-0" />
           <p className="text-sm leading-6 text-center sm:text-left">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

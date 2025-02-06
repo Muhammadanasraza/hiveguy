@@ -35,7 +35,7 @@ const FlashSale = () => {
     }
 
     return (
-        <div className="flex flex-col lg:flex-row mt-10 mx-4 rounded-4xl bg-white gap-4 px-3 py-10">
+        <div className="flex flex-col lg:flex-row mt-10 max-w-7xl  mx-auto max-sm:mx-2 rounded-4xl bg-white gap-4 px- ">
             {/* Flash Sale Section */}
             <div className="w-full lg:w-2/5 bg-white shadow-md rounded-lg">
                 <h2 className="text-white p-3 bg-gradient-to-r from-[#F81972] to-[#2F155B] font-bold text-2xl mb-4">
@@ -97,7 +97,7 @@ const FlashSale = () => {
             {/* Product Cards Section */}
             <div className="w-full lg:w-3/5">
                 {/* Tabs */}
-                <div className="flex justify-between lg:justify-end border-b border-gray-300 mb-4 overflow-x-auto scrollbar-hide">
+                <div className="flex justify-between p-5  lg:justify-end  border-b border-gray-300 mb-4 overflow-x-auto scrollbar-hide">
                     {["Featured", "On Sale", "Top Rated"].map((tab) => (
                         <button
                             key={tab}
@@ -110,10 +110,11 @@ const FlashSale = () => {
                     ))}
                 </div>
                 {/* Products */}
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 px-10 py-5">{renderProducts()}</div>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 px-10 ">{renderProducts()}
+                </div>
                 {/* View All Button */}
                 <div className="flex justify-center mt-6">
-                    <Button className="w-full sm:w-auto">View All</Button>
+                    <Button className="w-full sm:w-auto mb-5">View All</Button>
                 </div>
             </div>
         </div>
