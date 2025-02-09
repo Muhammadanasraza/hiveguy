@@ -2,6 +2,7 @@ import React from "react";
 import airbuds from "../assets/images/airbuds.png";
 import Button from "./ui/button";
 import { FaRegStar, FaStar } from "react-icons/fa";
+import { Link } from "react-router";
 
 const JustForYou = () => {
     const products = [
@@ -57,7 +58,9 @@ const JustForYou = () => {
                             <div className="font-bold text-lg text-gray-900 mb-4">{product.price}</div>
                             <div className="flex justify-between gap-2">
                                 <Button className="w-1/2 bg-purple-500 text-white text-sm font-medium py-2 rounded-lg hover:bg-purple-600 transition">
+                                <Link to='/addtocart'>
                                     See Preview
+                                </Link>
                                 </Button>
                                 <button className="w-1/2 bg-gray-200 text-gray-700 text-sm font-medium py-2 rounded-lg hover:bg-gray-300 transition">
                                     Similar Items

@@ -87,9 +87,15 @@ const Footer = () => {
         </div>
       </div>
 
-      <div className="mt-10 border-t border-purple-500 pt-4 text-sm text-right px-7">
-        Payment Methods: VISA | MASTERCARD | PAYPAL | BITCOIN
-      </div>
+      
+<div className="mt-10 max-w-7xl mx-auto pt-4 text-sm text-right px-7">
+  <span className="mr-5 ">Payment</span> 
+  <Link to="/visa" className="mx-2  ">VISA</Link>  
+  <Link to="/mastercard" className="mx-2 ">MASTERCARD</Link>   
+  <Link to="/paypal" className="mx-2 ">PAYPAL</Link>   
+  <Link to="/bitcoin" className="mx-2 ">BITCOIN</Link>
+</div>
+
     </footer>
   );
 };
