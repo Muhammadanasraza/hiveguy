@@ -4,6 +4,8 @@ import { FaStar } from "react-icons/fa"
 import ProductCard from "../Components/ui/ProductCard"
 import ReviewsPage from "../Components/ReveiwCard"
 import watch from "../assets/images/watch.png"
+import watch2 from "../assets/images/watch2.png"
+import watch3 from "../assets/images/watch3.png"
 import CartDialog from "../Components/ui/AddToCartDialog"
 import AddToCartProduct from "../Components/AddToCartProduct"
 
@@ -66,25 +68,30 @@ export default function AddToCart() {
       image: watch,
       badges: ["Free Shipping", "COD"],
     },
-  ]
+  ];
+
+  // carousel image slider
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const nextSlide = () => {
+    setActiveIndex((prevIndex) => (prevIndex + 1) % thumbnails.length);
+  };
+
+  const prevSlide = () => {
+    setActiveIndex((prevIndex) =>
+      prevIndex === 0 ? thumbnails.length - 1 : prevIndex - 1
+    );
+  };
 
   const thumbnails = [
-    {
-      id: 1,
-      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-29%20194729-Tek973i83VvK0TruLhTEqE0NTVqIMU.png",
-      alt: "Watch front view",
-    },
-    {
-      id: 2,
-      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-29%20194729-Tek973i83VvK0TruLhTEqE0NTVqIMU.png",
-      alt: "Watch side view",
-    },
-    {
-      id: 3,
-      src: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Screenshot%202025-01-29%20194729-Tek973i83VvK0TruLhTEqE0NTVqIMU.png",
-      alt: "Watch back view",
-    },
-  ]
+    { id: 1, image: watch, alt: "Watch 1" },
+    { id: 2, image: watch2, alt: "Watch 2" },
+    { id: 3, image: watch3, alt: "Watch 3" },
+  ];
+
+
+  
+
 
   return (
     <div className="bg-[#FFF6F6] py-4">
@@ -92,29 +99,59 @@ export default function AddToCart() {
         <div className="grid grid-cols-1 bg-white items-center p-3 rounded-2xl shadow-sm md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Product imgs Section */}
           <div className="space-y-4">
-            <div className=" border-blue-500 rounded-lg ">
+            <div className="w-full h-64 flex items-center justify-center  rounded-lg">
               <img
-                src={watch || "/placeholder.svg"}
-                alt="Haylou Solar Pro Sport Smart Watch"
-                width={20}
-                className="w-full p-10 h-auto"
+                src={thumbnails[activeIndex].image}
+                alt={thumbnails[activeIndex].alt}
+                className="w-full h-full object-contain rounded-lg transition-all duration-300"
               />
             </div>
-            <div className="flex items-center gap-2">
-              <button className="p-2 rounded-full bg-gray-100">&lt;</button>
-              {thumbnails.map((thumb) => (
-                <div key={thumb.id} className="border rounded-lg p-1 cursor-pointer hover:border-blue-500">
-                  <img
-                    src={watch || "/placeholder.svg"}
-                    alt={thumb.alt}
-                    width={60}
-                    height={60}
-                    className="w-full h-auto"
-                  />
+
+            {/* images carousel  */}
+            <div className="flex flex-col items-center w-full max-w-md mx-auto">
+              {/* Thumbnail Navigation */}
+              <div className="flex items-center gap-2 mt-4">
+                {/* Previous Button */}
+                <button
+                  onClick={prevSlide}
+                  className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition"
+                >
+                  &lt;
+                </button>
+
+                {/* Thumbnails */}
+                <div className="flex gap-2">
+                  {thumbnails.map((thumb, index) => (
+                    <div
+                      key={thumb.id}
+                      className={`border rounded-full p-1 cursor-pointer transition-all ${index === activeIndex
+                        ? "border-purple-500 scale-110"
+                        : "border-gray-300"
+                        }`}
+                      onClick={() => setActiveIndex(index)}
+                    >
+                      <img
+                        src={thumb.image}
+                        alt={thumb.alt}
+                        width={50}
+                        height={50}
+                        className="  p-2"
+                      />
+                    </div>
+                  ))}
                 </div>
-              ))}
-              <button className="p-2 rounded-full bg-gray-100">&gt;</button>
+
+                {/* Next Button */}
+                <button
+                  onClick={nextSlide}
+                  className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition"
+                >
+                  &gt;
+                </button>
+              </div>
             </div>
+            {/* images carousel  */}
+
           </div>
 
           {/* Product Details Section */}
@@ -153,15 +190,13 @@ export default function AddToCart() {
                 <div className="text-sm text-gray-600 mb-2">Color Family</div>
                 <div className="flex gap-2">
                   <button
-                    className={`w-8 h-8 rounded-full bg-gray-900 ${
-                      selectedColor === "black" ? "ring-2 ring-blue-500 ring-offset-2" : ""
-                    }`}
+                    className={`w-8 h-8 rounded-full bg-gray-900 ${selectedColor === "black" ? "ring-2 ring-blue-500 ring-offset-2" : ""
+                      }`}
                     onClick={() => setSelectedColor("black")}
                   />
                   <button
-                    className={`w-8 h-8 rounded-full bg-gray-400 ${
-                      selectedColor === "silver" ? "ring-2 ring-blue-500 ring-offset-2" : ""
-                    }`}
+                    className={`w-8 h-8 rounded-full bg-gray-400 ${selectedColor === "silver" ? "ring-2 ring-blue-500 ring-offset-2" : ""
+                      }`}
                     onClick={() => setSelectedColor("silver")}
                   />
                 </div>

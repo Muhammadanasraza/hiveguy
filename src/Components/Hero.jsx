@@ -1,6 +1,5 @@
 import React from 'react'
 import Features from '../Components/Feature';
-import SportswearSaleBanner from '../Components/SportswearSaleBanner';
 import FlashSale from './FlashSale';
 import ShopByCategory from './CategarySection';
 import TopSellers from './TopSellerSection';
@@ -11,12 +10,13 @@ import JustForYou from './ForYouPage';
 import YoutubLink from './YoutubLink';
 import LatestNews from './LatestNews';
 import NewsletterSignup from './NewsLetterSignup';
+import Carousel from './MainCarousel';
 
 function Hero() {
     return (
         <div className='container max-w-max mx-auto'>
             <Features />
-            <SportswearSaleBanner />
+            <Carousel />
             <FlashSale/>
             <ShopByCategory/>
             <TopSellers/>
