@@ -10,8 +10,10 @@ import CartDialog from "../Components/ui/AddToCartDialog"
 import AddToCartProduct from "../Components/AddToCartProduct"
 
 export default function AddToCart() {
+
+  const [selectedColor, setSelectedColor] = useState("black");
+  const [isFavorite, setIsFavorite] = useState(false); // State for Heart Button
   const [quantity, setQuantity] = useState(1)
-  const [selectedColor, setSelectedColor] = useState("black")
 
   const products = [
     {
@@ -72,15 +74,19 @@ export default function AddToCart() {
 
   // carousel image slider
   const [activeIndex, setActiveIndex] = useState(0);
+  const [startIndex, setStartIndex] = useState(0);
+  const visibleCount = 3; // Show only 3 thumbnails at a time
 
   const nextSlide = () => {
-    setActiveIndex((prevIndex) => (prevIndex + 1) % thumbnails.length);
+    if (startIndex + visibleCount < thumbnails.length) {
+      setStartIndex(startIndex + 1);
+    }
   };
 
   const prevSlide = () => {
-    setActiveIndex((prevIndex) =>
-      prevIndex === 0 ? thumbnails.length - 1 : prevIndex - 1
-    );
+    if (startIndex > 0) {
+      setStartIndex(startIndex - 1);
+    }
   };
 
   const thumbnails = [
@@ -90,7 +96,7 @@ export default function AddToCart() {
   ];
 
 
-  
+
 
 
   return (
@@ -98,7 +104,7 @@ export default function AddToCart() {
       <div className="max-w-7xl mx-auto p-2   ">
         <div className="grid grid-cols-1 bg-white items-center p-3 rounded-2xl shadow-sm md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Product imgs Section */}
-          <div className="space-y-4">
+          <div className="space-y-6 mx-10 border border-gray-300 p-2 rounded-2xl">
             <div className="w-full h-64 flex items-center justify-center  rounded-lg">
               <img
                 src={thumbnails[activeIndex].image}
@@ -108,34 +114,32 @@ export default function AddToCart() {
             </div>
 
             {/* images carousel  */}
-            <div className="flex flex-col items-center w-full max-w-md mx-auto">
+            <div className="flex flex-col items-center w-full border-t-2 border-gray-300 max-w-md mx-auto">
               {/* Thumbnail Navigation */}
               <div className="flex items-center gap-2 mt-4">
                 {/* Previous Button */}
                 <button
                   onClick={prevSlide}
-                  className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition"
+                  className="p-1 rounded-full hover:bg-gray-200 transition"
                 >
                   &lt;
                 </button>
 
-                {/* Thumbnails */}
+                {/* Thumbnails - Show only 3 at a time */}
                 <div className="flex gap-2">
-                  {thumbnails.map((thumb, index) => (
+                  {thumbnails.slice(startIndex, startIndex + visibleCount).map((thumb, index) => (
                     <div
                       key={thumb.id}
-                      className={`border rounded-full p-1 cursor-pointer transition-all ${index === activeIndex
-                        ? "border-purple-500 scale-110"
-                        : "border-gray-300"
+                      className={`border rounded-full p-1 cursor-pointer transition-all ${index + startIndex === activeIndex ? "border-purple-500 scale-110" : "border-gray-300"
                         }`}
-                      onClick={() => setActiveIndex(index)}
+                      onClick={() => setActiveIndex(index + startIndex)}
                     >
                       <img
                         src={thumb.image}
                         alt={thumb.alt}
                         width={50}
                         height={50}
-                        className="  p-2"
+                        className="p-2"
                       />
                     </div>
                   ))}
@@ -144,7 +148,7 @@ export default function AddToCart() {
                 {/* Next Button */}
                 <button
                   onClick={nextSlide}
-                  className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition"
+                  className="p-1 rounded-full hover:bg-gray-200 transition"
                 >
                   &gt;
                 </button>
@@ -164,8 +168,11 @@ export default function AddToCart() {
                 <button className="p-2 rounded-full hover:bg-gray-100">
                   <FiShare2 className="w-5 h-5" />
                 </button>
-                <button className="p-2 rounded-full hover:bg-gray-100">
-                  <FiHeart className="w-5 h-5" />
+                <button
+                  className="p-2 rounded-full hover:bg-gray-100"
+                  onClick={() => setIsFavorite(!isFavorite)}
+                >
+                  <FiHeart className={`w-5 h-5 ${isFavorite ? "text-red-500 " : "text-gray-500"}`} />
                 </button>
               </div>
             </div>
@@ -186,6 +193,7 @@ export default function AddToCart() {
             </div>
 
             <div className="space-y-4">
+              {/* Color Selection */}
               <div>
                 <div className="text-sm text-gray-600 mb-2">Color Family</div>
                 <div className="flex gap-2">
@@ -202,6 +210,7 @@ export default function AddToCart() {
                 </div>
               </div>
 
+              {/* Quantity Selection */}
               <div>
                 <div className="text-sm text-gray-600 mb-2">Quantity</div>
                 <div className="flex items-center gap-2">
@@ -224,11 +233,15 @@ export default function AddToCart() {
               </div>
             </div>
 
+            {/* Buttons */}
             <div className="flex gap-4 pt-4">
-              <button className="flex-1 bg-gray-500 text-white py-3 rounded-md hover:bg-gray-600">Buy Now</button>
+              <button className="flex-1 bg-gray-500 text-white py-3 rounded-md hover:bg-gray-600">
+                Buy Now
+              </button>
               <CartDialog /> {/* Replaced Button with CartDialog */}
             </div>
           </div>
+          {/* Product Details Section */}
 
           {/* Delivery and Service Section */}
           <div className="bg-pink-50 p-4 rounded-lg space-y-6">

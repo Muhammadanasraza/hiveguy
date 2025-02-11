@@ -17,6 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/authpage" element={<AuthPage />} />
+        
         <Route path="/authpage/forgotpage" element={<ForgotPassword />} />
         <Route path="/productlisting" element={<ProductListing />} />
         <Route path="/addtocart" element={<AddToCart />} />
