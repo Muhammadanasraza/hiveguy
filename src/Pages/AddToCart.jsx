@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { FiShare2, FiHeart, FiMapPin, FiTruck, FiShield, FiMessageSquare } from "react-icons/fi"
-import { FaStar } from "react-icons/fa"
+import { FaChevronLeft, FaChevronRight, FaStar } from "react-icons/fa"
 import ProductCard from "../Components/ui/ProductCard"
 import ReviewsPage from "../Components/ReveiwCard"
 import watch from "../assets/images/watch.png"
@@ -8,6 +8,8 @@ import watch2 from "../assets/images/watch2.png"
 import watch3 from "../assets/images/watch3.png"
 import CartDialog from "../Components/ui/AddToCartDialog"
 import AddToCartProduct from "../Components/AddToCartProduct"
+import { BiChevronLeft, BiChevronRight } from "react-icons/bi"
+import { motion, AnimatePresence } from "framer-motion"
 
 export default function AddToCart() {
 
@@ -72,31 +74,36 @@ export default function AddToCart() {
     },
   ];
 
-  // carousel image slider
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [startIndex, setStartIndex] = useState(0);
-  const visibleCount = 3; // Show only 3 thumbnails at a time
+
+
+
+
+  const thumbnails = [
+    { id: 1, image: watch, alt: "Image 1" },
+    { id: 2, image: watch2, alt: "Image 2" },
+    { id: 3, image: watch3, alt: "Image 3" },
+    { id: 4, image: watch, alt: "Image 4" },
+    { id: 5, image: watch2, alt: "Image 5" },
+  ]
+
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [startIndex, setStartIndex] = useState(0)
+  const [showModal, setShowModal] = useState(false)
+  const visibleCount = 3
 
   const nextSlide = () => {
     if (startIndex + visibleCount < thumbnails.length) {
-      setStartIndex(startIndex + 1);
+      setStartIndex(startIndex + 1)
+      setActiveIndex(activeIndex + 1)
     }
-  };
+  }
 
   const prevSlide = () => {
     if (startIndex > 0) {
-      setStartIndex(startIndex - 1);
+      setStartIndex(startIndex - 1)
+      setActiveIndex(activeIndex - 1)
     }
-  };
-
-  const thumbnails = [
-    { id: 1, image: watch, alt: "Watch 1" },
-    { id: 2, image: watch2, alt: "Watch 2" },
-    { id: 3, image: watch3, alt: "Watch 3" },
-  ];
-
-
-
+  }
 
 
   return (
@@ -104,28 +111,30 @@ export default function AddToCart() {
       <div className="max-w-7xl mx-auto p-2   ">
         <div className="grid grid-cols-1 bg-white items-center p-3 rounded-2xl shadow-sm md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Product imgs Section */}
-          <div className="space-y-6 mx-10 border border-gray-300 p-2 rounded-2xl">
-            <div className="w-full h-64 flex items-center justify-center  rounded-lg">
+          <div className="space-y-6 mx-auto max-w-2xl border border-gray-300 p-4 rounded-2xl">
+            <div className="w-full h-64 flex items-center justify-center rounded-lg">
               <img
-                src={thumbnails[activeIndex].image}
+                src={thumbnails[activeIndex].image || "/placeholder.svg"}
                 alt={thumbnails[activeIndex].alt}
-                className="w-full h-full object-contain rounded-lg transition-all duration-300"
+                width={300}
+                height={300}
+                className="w-full h-full object-contain rounded-lg transition-all duration-300 cursor-pointer"
+                onClick={() => setShowModal(true)}
               />
             </div>
 
-            {/* images carousel  */}
-            <div className="flex flex-col items-center w-full border-t-2 border-gray-300 max-w-md mx-auto">
-              {/* Thumbnail Navigation */}
-              <div className="flex items-center gap-2 mt-4">
-                {/* Previous Button */}
+            <div className="flex flex-col items-center w-full border-t-2 border-gray-300 pt-4">
+              <div className="flex items-center gap-2">
                 <button
                   onClick={prevSlide}
-                  className="p-1 rounded-full hover:bg-gray-200 transition"
+                  className={`p-2 rounded-full transition ${startIndex === 0 ? "text-gray-300 cursor-not-allowed" : "hover:bg-gray-200 text-gray-600"
+                    }`}
+                  aria-label="Previous image"
+                  disabled={startIndex === 0}
                 >
-                  &lt;
+                  <BiChevronLeft className="w-6 h-6" />
                 </button>
 
-                {/* Thumbnails - Show only 3 at a time */}
                 <div className="flex gap-2">
                   {thumbnails.slice(startIndex, startIndex + visibleCount).map((thumb, index) => (
                     <div
@@ -135,28 +144,67 @@ export default function AddToCart() {
                       onClick={() => setActiveIndex(index + startIndex)}
                     >
                       <img
-                        src={thumb.image}
+                        src={thumb.image || "/placeholder.svg"}
                         alt={thumb.alt}
                         width={50}
                         height={50}
-                        className="p-2"
+                        className="rounded-full"
                       />
                     </div>
                   ))}
                 </div>
 
-                {/* Next Button */}
                 <button
                   onClick={nextSlide}
-                  className="p-1 rounded-full hover:bg-gray-200 transition"
+                  className={`p-2 rounded-full transition ${startIndex + visibleCount >= thumbnails.length
+                    ? "text-gray-300 cursor-not-allowed"
+                    : "hover:bg-gray-200 text-gray-600"
+                    }`}
+                  aria-label="Next image"
+                  disabled={startIndex + visibleCount >= thumbnails.length}
                 >
-                  &gt;
+                  <BiChevronRight className="w-6 h-6" />
                 </button>
               </div>
             </div>
-            {/* images carousel  */}
-
           </div>
+
+          {/* dialog? */}
+          <AnimatePresence>
+            {showModal && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                onClick={() => setShowModal(false)}
+                className="fixed p-4 inset-0 bg-[#353535ba] bg-opacity-50 flex items-center justify-center z-50"
+              >
+                <motion.div
+                  initial={{ scale: 0.5, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  exit={{ scale: 0.5, opacity: 0 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                  className="bg-white p-4 rounded-lg relative"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <img
+                    src={thumbnails[activeIndex].image || "/placeholder.svg"}
+                    alt={thumbnails[activeIndex].alt}
+                    width={600}
+                    height={600}
+                    className="max-w-full max-h-[80vh] object-contain"
+                  />
+                  <button
+                    onClick={() => setShowModal(false)}
+                    className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+                  >
+                    {/* <X className="w-6 h-6" /> */}
+                  </button>
+                </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+          {/* dialog? */}
 
           {/* Product Details Section */}
           <div className="space-y-4">

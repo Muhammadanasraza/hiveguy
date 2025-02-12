@@ -6,6 +6,7 @@ import ProductCardList from "../Components/ui/ProductCardList"
 import { IoGrid } from "react-icons/io5";
 import { FaListUl } from "react-icons/fa6";
 import watch from '../assets/images/watch.png'
+import Pagination from "../Components/Pagination";
 
 
 const products = [
@@ -108,23 +109,39 @@ const products = [
         description:
             "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock. Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
     },
-        {
-            id: 1,
-            title: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
-            price: 2903,
-            rating: 4,
-            reviews: 4000,
-            image: watch,
-            badges: ["Free Shipping", "COD"],
-            description:
-                "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock. Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
-        },
+    {
+        id: 1,
+        title: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
+        price: 2903,
+        rating: 4,
+        reviews: 4000,
+        image: watch,
+        badges: ["Free Shipping", "COD"],
+        description:
+            "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock. Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
+    },
     // Add more products as needed
 ]
+
+// pagination?
+
+const ITEMS_PER_PAGE = 2 // Adjust this value based on how many items you want per page
 
 
 export default function ProductListingPage() {
     const [viewMode, setViewMode] = useState("grid")
+    const [currentPage, setCurrentPage] = useState(1)
+
+    const totalPages = Math.ceil(products.length / ITEMS_PER_PAGE)
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
+    const endIndex = startIndex + ITEMS_PER_PAGE
+    const currentProducts = products.slice(startIndex, endIndex)
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page)
+        window.scrollTo(0, 0) // Scroll to top when page changes
+    }
+    // pagination?
 
     return (
         <div className="min-h-screen bg-[#FFF6F6]">
@@ -177,17 +194,22 @@ export default function ProductListingPage() {
                         {/* Product Grid/List */}
                         {viewMode === "grid" ? (
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                                {products.map((product) => (
+                                {currentProducts.map((product) => (
                                     <ProductCard key={product.id} {...product} />
                                 ))}
                             </div>
                         ) : (
                             <div className="space-y-4">
-                                {products.map((product) => (
+                                {currentProducts.map((product) => (
                                     <ProductCardList key={product.id} {...product} />
                                 ))}
                             </div>
                         )}
+
+                        {/* Pagination */}
+                        <div className="mt-8">
+                            <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={handlePageChange} />
+                        </div>
                     </div>
                 </div>
             </div>

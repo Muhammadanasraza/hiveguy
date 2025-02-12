@@ -28,12 +28,12 @@ function ColorSwatch({ color, label, selected } ) {
 
 export default function SidebarFilter() {
   return (
-    <div className="w-64 bg-[#FFF6F6] p-4 border-r  ">
+    <div className="w-64 bg-[#FFF6F6] p-4 shadow-lg  ">
       {/* Promotion & Services */}
       <FilterSection title="Promotion & Services">
         <div className="space-y-2">
           <div className="flex items-center gap-2 text-sm">
-            <input type="checkbox" id="authentic" className="w-4 h-4 border-gray-300" />
+            <input type="checkbox" id="authentic" className="w-4 h-4 border-gray-300 " />
             <label htmlFor="authentic" className="flex items-center gap-2">
               <BsCheckCircleFill className="text-purple-600 w-4 h-4" />
               Authentic Brands

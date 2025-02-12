@@ -1,6 +1,6 @@
 import './App.css'
 import Home from './Pages/Home'
-import { BrowserRouter, Route, Routes } from 'react-router';  // FIXED IMPORT
+import { BrowserRouter, Route, Routes } from 'react-router';   
 import Header from './Components/Header'
 import Footer from './Components/Footer'
 import AuthPage from './Pages/AuthPage'
@@ -12,12 +12,11 @@ import ManageProfilePage from './Pages/AccountDashboard';
 
 function App() {
   return (
-    <BrowserRouter> {/* Use HashRouter here if Vercel gives issues */}
+    <BrowserRouter> 
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/authpage" element={<AuthPage />} />
-        
         <Route path="/authpage/forgotpage" element={<ForgotPassword />} />
         <Route path="/productlisting" element={<ProductListing />} />
         <Route path="/addtocart" element={<AddToCart />} />

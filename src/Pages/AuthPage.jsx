@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router";
+import Button from "../Components/ui/button";
 
 const AuthPage = () => {
   const [isLogin, setIsLogin] = useState(true);
@@ -54,13 +55,13 @@ const AuthPage = () => {
               </Link>
             </div>
 
-            <button
+            <Button
               type="submit"
-              className="w-full py-2 px-4 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-lg shadow-md hover:from-pink-600 hover:to-purple-600"
+              className="w-full py-2 px-4 bg-gradient-to-r text-white rounded-lg shadow-md"
               style={{ background: "linear-gradient(91.74deg, #F32779 -6.7%, #350662 112.95%)" }}
             >
               Login
-            </button>
+            </Button>
 
             <div className="flex items-center mt-2">
               <div className="flex-grow border-t border-gray-300"></div>
@@ -184,13 +185,13 @@ const AuthPage = () => {
               </div>
             </div>
 
-            <button
+            <Button
               type="submit"
-              className="w-full py-2 my-2 px-4 bg-gradient-to-r from-pink-500 to-purple-500 text-white rounded-lg shadow-md hover:from-pink-600 hover:to-purple-600"
+              className="w-full py-2 my-2 px-4  text-white rounded-lg shadow-md  "
               style={{ background: "linear-gradient(91.74deg, #F32779 -6.7%, #350662 112.95%)" }}
             >
               Sign up
-            </button>
+            </Button>
 
               <p className=" text-center text-[10px] pt-2 text-gray-400">By clicking “SIGN UP”, I agree to HiveGY Terms of Use and Privacy Policy</p>
             <div className="flex items-center my-4">
