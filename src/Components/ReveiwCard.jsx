@@ -32,7 +32,7 @@ const reviews = [
     {
         id: 2,
         name: "Samantha Lee",
-        image: "https://randomuser.me/api/portraits/women/12.jpg",
+        image: "https://randomuser.me/api/portraits/men/15.jpg",
         rating: 4,
         content:
             "Good product overall. However, the delivery took longer than expected. The customer support team was responsive, which I appreciate.",
@@ -56,7 +56,7 @@ const reviews = [
     {
         id: 4,
         name: "Linda Johnson",
-        image: "https://randomuser.me/api/portraits/women/16.jpg",
+        image: "https://randomuser.me/api/portraits/men/20.jpg",
         rating: 5,
         content:
             "Absolutely love it! The design is sleek, and the performance is outstanding. Worth every penny!",
@@ -80,7 +80,7 @@ const reviews = [
     {
         id: 6,
         name: "Aisha Al-Masri",
-        image: "https://randomuser.me/api/portraits/women/22.jpg",
+        image: "https://randomuser.me/api/portraits/men/10.jpg",
         rating: 5,
         content:
             "Great experience! Fast delivery, excellent quality, and smooth functionality. Will definitely buy again.",
