@@ -1,20 +1,98 @@
 
-import { FaStar, FaThumbsUp, FaComment } from "react-icons/fa"
 import rowimage from "../assets/images/rowimage.png"
 import rowimage2 from "../assets/images/rowimage2.png"
+import { useState } from "react"
+import { FaStar, FaThumbsUp, FaComment, FaChevronLeft, FaChevronRight } from "react-icons/fa"
 
+// Sample data (you would typically fetch this from an API)
 const ratingData = {
     average: 4.8,
-    total: 3849,
     distribution: [
-        { stars: 5, percentage: 93, count: 3849 },
-        { stars: 4, percentage: 89, count: 48 },
-        { stars: 3, percentage: 12, count: 19 },
-        { stars: 2, percentage: 0, count: 6 },
-        { stars: 1, percentage: 0, count: 28 },
+        { stars: 5, percentage: 80 },
+        { stars: 4, percentage: 15 },
+        { stars: 3, percentage: 3 },
+        { stars: 2, percentage: 1 },
+        { stars: 1, percentage: 1 },
     ],
 }
 
+const reviews = [
+    {
+        id: 1,
+        name: "Pablo Kathandra",
+        image: "https://randomuser.me/api/portraits/men/10.jpg",
+        rating: 5,
+        content:
+            "The product exceeded my expectations! The build quality is solid, and it works perfectly. Delivery was quick, and the packaging was secure. Highly recommended!",
+        reply:
+            "Thank you for your kind words! We’re delighted that you're happy with your purchase. Have a great day! Regards, MoboPro.",
+        likes: 25,
+        comments: 12,
+    },
+    {
+        id: 2,
+        name: "Samantha Lee",
+        image: "https://randomuser.me/api/portraits/women/12.jpg",
+        rating: 4,
+        content:
+            "Good product overall. However, the delivery took longer than expected. The customer support team was responsive, which I appreciate.",
+        reply:
+            "We apologize for the delay, and we appreciate your patience. We’re glad you’re satisfied with the product! Regards, MoboPro.",
+        likes: 14,
+        comments: 7,
+    },
+    {
+        id: 3,
+        name: "Rajesh Kumar",
+        image: "https://randomuser.me/api/portraits/men/15.jpg",
+        rating: 3,
+        content:
+            "The product is decent but could be improved. The material feels a bit flimsy, though it functions as described.",
+        reply:
+            "Thank you for your feedback! We’ll work on improving the quality based on your input. Regards, MoboPro.",
+        likes: 9,
+        comments: 5,
+    },
+    {
+        id: 4,
+        name: "Linda Johnson",
+        image: "https://randomuser.me/api/portraits/women/16.jpg",
+        rating: 5,
+        content:
+            "Absolutely love it! The design is sleek, and the performance is outstanding. Worth every penny!",
+        reply:
+            "Thank you for your wonderful review! We appreciate your support. Enjoy your purchase! Regards, MoboPro.",
+        likes: 30,
+        comments: 15,
+    },
+    {
+        id: 5,
+        name: "Michael Smith",
+        image: "https://randomuser.me/api/portraits/men/20.jpg",
+        rating: 2,
+        content:
+            "Not satisfied with the product. It arrived with some scratches, and the packaging was slightly damaged.",
+        reply:
+            "We’re sorry to hear about your experience. Please reach out to our support team, and we’ll resolve this issue for you. Regards, MoboPro.",
+        likes: 5,
+        comments: 3,
+    },
+    {
+        id: 6,
+        name: "Aisha Al-Masri",
+        image: "https://randomuser.me/api/portraits/women/22.jpg",
+        rating: 5,
+        content:
+            "Great experience! Fast delivery, excellent quality, and smooth functionality. Will definitely buy again.",
+        reply:
+            "We're thrilled to hear that! Thank you for your support, and we look forward to serving you again. Regards, MoboPro.",
+        likes: 18,
+        comments: 9,
+    },
+];
+
+
+const ITEMS_PER_PAGE = 1
 
 
 
@@ -42,6 +120,19 @@ const bestSellers = [
 ]
 
 export default function ReviewsPage() {
+
+    const [currentPage, setCurrentPage] = useState(1)
+
+    const totalPages = Math.ceil(reviews.length / ITEMS_PER_PAGE)
+    const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
+    const endIndex = startIndex + ITEMS_PER_PAGE
+    const currentReviews = reviews.slice(startIndex, endIndex)
+
+    const handlePageChange = (page) => {
+        setCurrentPage(page)
+    }
+
+
     return (
         <div className="lg:col-span-2">
             <div className="bg-pink-200 rounded-t-lg p-4">
@@ -96,54 +187,68 @@ export default function ReviewsPage() {
                     <button className="px-4 py-2 rounded-full bg-gray-100 text-sm">5 stars (3849)</button>
                 </div>
 
-                {/* Review Card */}
-                <div className="border-t py-4">
-                    <div className="flex items-start gap-4">
-                        <div className="w-10 h-10 rounded-full bg-gray-200" />
-                        <div className="flex-1">
-                            <h3 className="font-medium">Pablo Kathandra</h3>
-                            <div className="flex items-center gap-1 mb-2">
-                                {[...Array(5)].map((_, i) => (
-                                    <FaStar key={i} className="w-4 h-4 text-yellow-400" />
-                                ))}
-                            </div>
-                            <p className="text-gray-600 mb-4">
-                                The goods landed safely, arrived quickly, use instant delivery, the quality of the goods is okay and
-                                works well, the packing is safe and the delivery is fast, great, thank you!
-                            </p>
-                            <div className="bg-pink-50 p-4 rounded-lg mb-4">
-                                <p className="text-sm text-gray-600">
-                                    Thank you. Your kind words mean a lot to us. Thank you for being an amazing customer and have an
-                                    excellent day. Regards, MoboPro.
-                                </p>
-                            </div>
-                            <div className="flex items-center justify-end gap-4 text-sm text-gray-500">
-                                <button className="flex items-center gap-1">
-                                    <FaThumbsUp /> 16
-                                </button>
-                                <button className="flex items-center gap-1">
-                                    <FaComment /> 18
-                                </button>
+                {/* Review Cards */}
+                {currentReviews.map((review) => (
+                    <div key={review.id} className="border-t py-4">
+                        <div className="flex items-start gap-4">
+                            <img src={review.image} alt="" className="w-10 h-10 rounded-full bg-gray-200" />
+                            <div className="flex-1">
+                                <h3 className="font-medium">{review.name}</h3>
+                                <div className="flex items-center gap-1 mb-2">
+                                    {[...Array(5)].map((_, i) => (
+                                        <FaStar key={i} className={`w-4 h-4 ${i < review.rating ? "text-yellow-400" : "text-gray-200"}`} />
+                                    ))}
+                                </div>
+                                <p className="text-gray-600 mb-4">{review.content}</p>
+                                <div className="bg-pink-50 p-4 rounded-lg mb-4">
+                                    <p className="text-sm text-gray-600">{review.reply}</p>
+                                </div>
+                                <div className="flex items-center justify-end gap-4 text-sm text-gray-500">
+                                    <button className="flex items-center gap-1">
+                                        <FaThumbsUp /> {review.likes}
+                                    </button>
+                                    <button className="flex items-center gap-1">
+                                        <FaComment /> {review.comments}
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                ))}
 
                 {/* Pagination */}
                 <div className="flex items-center justify-center gap-2 pt-4">
-                    <button className="w-8 h-8 flex items-center justify-center rounded-full border">&lt;</button>
-                    {[1, 2, 3, 4].map((page) => (
+                    <button
+                        onClick={() => handlePageChange(currentPage - 1)}
+                        disabled={currentPage === 1}
+                        className={`w-8 h-8 flex items-center justify-center rounded-full border ${currentPage === 1 ? "text-gray-300" : "text-gray-600 hover:bg-gray-100"
+                            }`}
+                    >
+                        <FaChevronLeft className="w-4 h-4" />
+                    </button>
+                    {[...Array(totalPages)].map((_, index) => (
                         <button
-                            key={page}
-                            className={`w-8 h-8 flex items-center justify-center rounded-full ${page === 1 ? "bg-pink-500 text-white" : "border"
+                            key={index}
+                            onClick={() => handlePageChange(index + 1)}
+                            className={`w-8 h-8 flex items-center justify-center rounded-full ${currentPage === index + 1 ? "bg-pink-500 text-white" : "border text-gray-600 hover:bg-gray-100"
                                 }`}
                         >
-                            {page}
+                            {index + 1}
                         </button>
                     ))}
-                    <button className="w-8 h-8 flex items-center justify-center rounded-full border">&gt;</button>
+                    <button
+                        onClick={() => handlePageChange(currentPage + 1)}
+                        disabled={currentPage === totalPages}
+                        className={`w-8 h-8 flex items-center justify-center rounded-full border ${currentPage === totalPages ? "text-gray-300" : "text-gray-600 hover:bg-gray-100"
+                            }`}
+                    >
+                        <FaChevronRight className="w-4 h-4" />
+                    </button>
                 </div>
             </div>
+
+
+            {/*    images section */}
             <div className="mt-10 lg:col-span-2 shadow-sm rounded-2xl p-10 bg-white">
                 <div className="flex justify-between p-5 shadow-sm rounded-sm mb-10 gap-5">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 p-3">
@@ -168,6 +273,8 @@ export default function ReviewsPage() {
                 <img src={rowimage} alt="" className="my-5" />
                 <img src={rowimage2} alt="" className="my-5" />
             </div>
+            {/*    images section */}
+
         </div>
 
 
