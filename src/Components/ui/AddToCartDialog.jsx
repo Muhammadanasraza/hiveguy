@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FaStar, FaRegStar } from "react-icons/fa";
 import Button from "./button";
 import airbuds from "../../assets/images/airbuds.png";
+import { Link } from "react-router";
 
 export default function CartDialog() {
   const [isOpen, setIsOpen] = useState(false);
@@ -83,7 +84,9 @@ export default function CartDialog() {
                       <div className="font-bold text-lg text-gray-900 mb-4">${product.price}</div>
                       <div className="flex flex-col sm:flex-row gap-2">
                         <Button className="flex-1 bg-purple-500 text-white text-sm font-medium py-2 rounded-lg hover:bg-purple-600 transition">
-                          See Preview
+                         <Link to='/addtocart'>
+                         See Preview
+                         </Link> 
                         </Button>
                         <button className="flex-1 bg-gray-200 text-gray-700 text-sm font-medium py-2 rounded-lg hover:bg-gray-300 transition">
                           Similar Items
