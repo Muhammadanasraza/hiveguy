@@ -1,186 +1,176 @@
-import { useState, useRef, useEffect } from "react";
-import { RiArrowDropDownLine } from "react-icons/ri";
-import { IoHome } from "react-icons/io5";
-import { IoShirt } from "react-icons/io5";
-import { FiSmartphone } from "react-icons/fi";
+ 
+import { useState } from "react"
+import {
+  IoHomeOutline,
+  IoShirtOutline,
+  IoCarSportOutline,
+  IoHardwareChipOutline,
+  IoMenuOutline,
+  IoChevronUpOutline,
+  IoChevronForwardOutline,
+} from "react-icons/io5"
+import { PiHandbagSimple, PiMaskHappy, PiTelevisionSimple } from "react-icons/pi"
 
 const categories = [
   {
-    id: "home-garden",
-    label: "Home Garden",
-    icon: IoHome,
-    subcategories: {
-      bathroom: { title: "Bathroom", items: ["Towel", "Paper Holder"] },
-      bedroom: { title: "Bedroom", items: ["Boxes", "Bags"] },
-      living: { title: "Living Room", items: ["Painting By Numbers", "Hooks"] },
-    },
+    name: "Kitchen",
+    icon: IoHomeOutline,
+    subcategories: [
+      "Mug Thermos",
+      "Basket",
+      "Waterproof Wall Sticker",
+      "Home Brewing & Wine Making Barware",
+      "Table Decoration & Accessories",
+      "Wok",
+    ],
   },
   {
-    id: "clothing",
-    label: "Men's Clothing",
-    icon: IoShirt,
-    subcategories: {
-      tops: { title: "Tops", items: ["T-Shirts", "Shirts"] },
-      bottoms: { title: "Bottoms", items: ["Jeans", "Shorts"] },
-    },
+    name: "Bathroom",
+    icon: IoHomeOutline,
+    subcategories: ["Towel", "Paper Holder", "Quick Dry Towel", "Hair Towel", "Mat", "Hand Towel"],
   },
   {
-    id: "electronics",
-    label: "Consumer Electronics",
-    icon: FiSmartphone,
-    subcategories: {
-      computers: { title: "Computers", items: ["Laptops", "Desktops"] },
-      phones: { title: "Phones", items: ["Smartphones", "Chargers"] },
-    },
+    name: "Bedroom",
+    icon: IoShirtOutline,
+    subcategories: ["Boxes", "Bags", "Decorative Mirrors", "Sculptures & Figurines", "Photo Albums", "Tapestries"],
   },
-];
+  {
+    name: "Living Room",
+    icon: PiTelevisionSimple,
+    subcategories: [
+      "Painting By Numbers",
+      "Hooks",
+      "Stickers & Poster",
+      "Door Screen",
+      "Sculptures & Figurine",
+      "Tapestries",
+    ],
+  },
+  {
+    name: "Dining Room",
+    icon: PiHandbagSimple,
+    subcategories: [
+      "Sashes",
+      "Table Linens",
+      "Handkerchief Towels",
+      "Bug Zappers",
+      "Candles & Holders",
+      "Chair Leg Covers",
+    ],
+  },
+  {
+    name: "Home Office",
+    icon: IoHardwareChipOutline,
+    subcategories: [
+      "Fabric & Lace",
+      "Needle Arts & Craft",
+      "Home Fragrance",
+      "Candle Making",
+      "Ceramics & Pottery",
+      "Diamond Painting",
+      "Mattress Cover",
+      "Cushions",
+      "Mosquito Nets",
+      "Sheet Sets",
+      "Duvets",
+      "Bedspreads & Coverlets",
+    ],
+  },
+  {
+    name: "Garden & Balcony",
+    icon: IoCarSportOutline,
+    subcategories: [
+      "Automatic Irrigation Equipment",
+      "Garden Water Timers",
+      "Garden Buildings",
+      "Outdoor Heaters",
+      "Garden Pots & Planters",
+      "Watering & Irrigation",
+    ],
+  },
+  {
+    name: "Festive & Party Supplies",
+    icon: PiMaskHappy,
+    subcategories: [
+      "Christmas Supplies",
+      "Glow Supplies",
+      "Birthday & Balloon",
+      "Party Supplies",
+      "Artificial Flower",
+      "Gift & Gift Bag",
+    ],
+  },
+]
 
 export default function DropDown() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [activeCategory, setActiveCategory] = useState(categories[0]);
-  const menuRef = useRef(null);
-
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setIsOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  const [isOpen, setIsOpen] = useState(false)
+  const [selectedCategory, setSelectedCategory] = useState(null)
 
   return (
-    <div ref={menuRef} className="relative w-full max-w-[150px] max-sm:mx-auto">
+    <div className="relative w-full max-w-sm">
       <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center w-full justify-between px-4 py-2 bg-gray-200 rounded-full border border-gray-400 cursor-pointer transition duration-200"
+        onClick={() => {
+          setIsOpen(!isOpen)
+          setSelectedCategory(null)
+        }}
+        className="flex w-[200px] items-center justify-between rounded-3xl border border-gray-200 bg-gray-300 px-4 py-2 text-left text-sm font-medium text-gray-900 hover:bg-gray-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-500"
+        aria-haspopup="true"
+        aria-expanded={isOpen}
       >
-        <span className="font-medium text-black">Category</span>
-        <RiArrowDropDownLine
-          className={`w-6 h-6 text-black transition-transform duration-200 ${isOpen ? "rotate-180" : "rotate-0"}`}
+        <div className="flex items-center gap-2">
+          <IoMenuOutline className="h-5 w-5" />
+          <span>Category</span>
+        </div>
+        <IoChevronUpOutline
+          className={`h-5 w-5 transition-transform duration-200 ${isOpen ? "rotate-0" : "rotate-180"}`}
         />
       </button>
 
       {isOpen && (
-        <div className="absolute left-0 top-full max-sm:w-full w-2xl mt-2 bg-white rounded-lg shadow-lg z-50 flex border border-gray-200">
-          <div className="w-40 max-sm:w-32 border-r border-gray-200">
-            {categories.map((category) => (
-              <div
-                key={category.id}
-                onClick={() => setActiveCategory(category)}
-                className={`flex items-center gap-2 px-4 py-2 cursor-pointer transition duration-200 ${activeCategory.id === category.id ? "bg-gray-100" : "hover:bg-gray-50"}`}
+        <div className="absolute z-10 mt-2 w-[200px]  max-sm:w-[130px] overflow-hidden rounded-lg border border-gray-200 bg-white shadow-lg">
+          <div className="max-h-[400px] overflow-y-auto">
+            {categories.map((category, index) => (
+              <button
+                key={index}
+                className="flex w-full items-center justify-between px-4 py-2.5 text-left text-[11px] text-gray-900 hover:bg-gray-50"
+                onClick={() => {
+                  setSelectedCategory(index)
+                }}
               >
-                <category.icon className="w-5 h-5 text-gray-600" />
-                <span className="text-gray-800 text-sm">{category.label}</span>
-              </div>
+                <div className="flex items-center gap-3">
+                  <category.icon className="h-4 w-4 flex-shrink-0 text-gray-500" />
+                  <span>{category.name}</span>
+                </div>
+                <IoChevronForwardOutline className="h-4 w-4 text-gray-400" />
+              </button>
             ))}
           </div>
-          <div className="flex-1 p-4 grid grid-cols-2 gap-4">
-            {activeCategory.subcategories ? (
-              Object.values(activeCategory.subcategories).map((section) => (
-                <div key={section.title}>
-                  <h3 className="font-semibold text-gray-900">{section.title}</h3>
-                  {section.items.map((item) => (
-                    <a
-                      key={item}
-                      href="#"
-                      className="block text-sm text-gray-600 mt-1 hover:text-gray-900"
-                    >
-                      {item}
-                    </a>
-                  ))}
-                </div>
-              ))
-            ) : (
-              <div className="text-gray-500">No subcategories available.</div>
-            )}
+        </div>
+      )}
+
+      {isOpen && selectedCategory !== null && (
+        <div className="absolute max-sm:left-[135px] left-[203px] mt-2  z-20 w-[700px] max-sm:w-[250px] rounded-lg border border-gray-200 bg-white p-6 shadow-lg">
+          <div className="mb-4">
+            <h3 className="text-sm font-semibold text-gray-900">{categories[selectedCategory].name}</h3>
+          </div>
+          <div className="grid grid-cols-3 gap-6">
+            {categories[selectedCategory].subcategories.map((subcategory, index) => (
+              <button
+                key={index}
+                className="text-left text-sm max-sm:text-[11px] text-gray-600 hover:text-gray-900"
+                onClick={() => {
+                  setIsOpen(false)
+                  setSelectedCategory(null)
+                  // Handle subcategory selection here
+                }}
+              >
+                {subcategory}
+              </button>
+            ))}
           </div>
         </div>
       )}
     </div>
-  );
+  )
 }
-
-
-
-// import   React from "react"
-// import { useState } from "react"
-// import {
-//   FaChevronUp,
-//   FaHome,
-//   FaCut,
-//   FaTshirt,
-//   FaShoppingBag,
-//   FaMobileAlt,
-//   FaLightbulb,
-//   FaTv,
-//   FaCar,
-//   FaBriefcase,
-//   FaShoePrints,
-//   FaWifi,
-// } from "react-icons/fa"
-// import { FiMenu } from "react-icons/fi"
-
- 
-
-// const categories = [
-//   { icon: FaHome, label: "Home Garden" },
-//   { icon: FaCut, label: "Hair Extensions & Wigs" },
-//   { icon: FaTshirt, label: "Men's Clothing" },
-//   { icon: FaShoppingBag, label: "Accessories" },
-//   { icon: FaMobileAlt, label: "Consumer Electronics" },
-//   { icon: FaLightbulb, label: "Home Improvement & Lighting" },
-//   { icon: FaTv, label: "Home Appliances" },
-//   { icon: FaCar, label: "Automotive & Motorcycle" },
-//   { icon: FaBriefcase, label: "Luggages & Bags" },
-//   { icon: FaShoePrints, label: "Shoes" },
-//   { icon: FaWifi, label: "Special Occasion Costume" },
-// ]
-
-// export default function CategoryMenu() {
-//   const [isOpen, setIsOpen] = useState(true)
-
-//   return (
-//     <div className="w-full max-w-sm mx-auto bg-gray-200 rounded-4xl shadow-md overflow-hidden">
-//       <div
-//         onClick={() => setIsOpen(!isOpen)}
-//         className=" flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50 transition-colors"
-//       >
-//         <div className="flex items-center gap-2">
-//           <FiMenu className="h-5 w-5 text-gray-500" />
-//           <h2 className="font-medium text-black">Category</h2>
-//         </div>
-//         <FaChevronUp
-//           className={`h-5 w-5 text-gray-500 transition-transform duration-200 ${!isOpen ? "rotate-180" : ""}`}
-//         />
-//       </div>
-//       <div
-//         className={`relative overflow-hidden transition-all duration-200 ease-in-out ${isOpen ? "max-h-[400px]" : "max-h-0"}`}
-//       >
-//         <div
-//           className={`absolute right-0 w-1 bg-pink-500 transition-all duration-200 ${isOpen ? "top-0 bottom-4" : "h-0"}`}
-//         />
-//         <div
-//           className={`overflow-y-auto max-h-[400px] px-4 py-2 transition-all duration-200 ${isOpen ? "opacity-100" : "opacity-0"}`}
-//         >
-//           <div className="space-y-4">
-//             {categories.map((category, index) => {
-//               const Icon = category.icon
-//               return (
-//                 <button
-//                   key={index}
-//                   className="flex items-center gap-3 w-full text-left hover:bg-gray-50 rounded-lg p-1 transition-colors"
-//                 >
-//                   <Icon className="h-5 w-5 text-gray-500 shrink-0" />
-//                   <span className="text-sm">{category.label}</span>
-//                 </button>
-//               )
-//             })}
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   )
-// }
 
