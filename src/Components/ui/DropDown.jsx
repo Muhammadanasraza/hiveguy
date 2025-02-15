@@ -153,7 +153,7 @@ export default function DropDown() {
       )}
 
       {isOpen && selectedCategory !== null && (
-        <div className="absolute max-sm:left-[135px] left-[203px] mt-2  z-20 w-[700px] max-sm:w-[200px] rounded-lg border border-gray-200 bg-white p-6 shadow-lg">
+        <div className="absolute max-sm:left-[131px] left-[203px] mt-2  z-20 w-[700px] max-sm:w-[210px] min-md:w-[500px] rounded-lg border border-gray-200 bg-white max-sm:p-3 p-6 shadow-lg">
           <div className="mb-4">
             <h3 className="text-sm font-semibold text-gray-900">{categories[selectedCategory].name}</h3>
           </div>
