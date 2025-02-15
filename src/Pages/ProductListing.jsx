@@ -31,9 +31,129 @@ const products = [
         badges: ["Free Shipping", "COD"],
         description: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock. Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
     },
+    {
+        id: 3,
+        title: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
+        price: 2903,
+        rating: 4,
+        reviews: 4000,
+        image: watch,
+        badges: ["Free Shipping", "COD"],
+        description: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock. Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
+    },
+    {
+        id: 4,
+        title: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
+        price: 2903,
+        rating: 4,
+        reviews: 4000,
+        image: watch,
+        badges: ["Free Shipping", "COD"],
+        description: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock. Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
+    },
+    {
+        id: 5,
+        title: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
+        price: 2903,
+        rating: 4,
+        reviews: 4000,
+        image: watch,
+        badges: ["Free Shipping", "COD"],
+        description: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock. Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
+    },
+    {
+        id: 6,
+        title: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
+        price: 2903,
+        rating: 4,
+        reviews: 4000,
+        image: watch,
+        badges: ["Free Shipping", "COD"],
+        description: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock. Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
+    },
+    {
+        id: 7,
+        title: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
+        price: 2903,
+        rating: 4,
+        reviews: 4000,
+        image: watch,
+        badges: ["Free Shipping", "COD"],
+        description: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock. Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
+    },
+    {
+        id: 8,
+        title: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
+        price: 2903,
+        rating: 4,
+        reviews: 4000,
+        image: watch,
+        badges: ["Free Shipping", "COD"],
+        description: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock. Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
+    },
+    {
+        id: 9,
+        title: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
+        price: 2903,
+        rating: 4,
+        reviews: 4000,
+        image: watch,
+        badges: ["Free Shipping", "COD"],
+        description: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock. Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
+    },
+    {
+        id: 10,
+        title: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
+        price: 2903,
+        rating: 4,
+        reviews: 4000,
+        image: watch,
+        badges: ["Free Shipping", "COD"],
+        description: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock. Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
+    },
+    {
+        id: 11,
+        title: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
+        price: 2903,
+        rating: 4,
+        reviews: 4000,
+        image: watch,
+        badges: ["Free Shipping", "COD"],
+        description: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock. Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
+    },
+    {
+        id: 12,
+        title: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
+        price: 2903,
+        rating: 4,
+        reviews: 4000,
+        image: watch,
+        badges: ["Free Shipping", "COD"],
+        description: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock. Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
+    },
+    {
+        id: 13,
+        title: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
+        price: 2903,
+        rating: 4,
+        reviews: 4000,
+        image: watch,
+        badges: ["Free Shipping", "COD"],
+        description: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock. Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
+    },
+    {
+        id: 14,
+        title: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
+        price: 2903,
+        rating: 4,
+        reviews: 4000,
+        image: watch,
+        badges: ["Free Shipping", "COD"],
+        description: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock. Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
+    },
 ]
 
-const ITEMS_PER_PAGE = 2 // Adjust this value based on how many items you want per page
+const ITEMS_PER_PAGE = 10 // Adjust this value based on how many items you want per page
 
 export default function ProductListingPage() {
     const [viewMode, setViewMode] = useState("grid")
@@ -70,14 +190,14 @@ export default function ProductListingPage() {
             </div>
 
             <div className="max-w-7xl mx-auto px-4 py-1">
-                <div className="flex flex-col lg:flex-row gap-6">
+                <div className="flex flex-col lg:flex-row gap-2">
                     {/* Sidebar Toggle for Mobile */}
                     <button className="lg:hidden mb-4 px-4 py-2 bg-gray-200 rounded-md" onClick={toggleSidebar}>
                         {isSidebarOpen ? "Close Filters" : "Open Filters"}
                     </button>
 
                     {/* Sidebar */}
-                    <div className={`lg:w-1/4 ${isSidebarOpen ? "block" : "hidden lg:block"}`}>
+                    <div className={`lg:w-1/4.5 ${isSidebarOpen ? "block" : "hidden lg:block"}`}>
                         <SidebarFilter />
                     </div>
 
@@ -111,7 +231,7 @@ export default function ProductListingPage() {
 
                         {/* Product Grid/List */}
                         {viewMode === "grid" ? (
-                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
                                 {currentProducts.map((product) => (
                                     <ProductCard key={product.id} {...product} />
                                 ))}
