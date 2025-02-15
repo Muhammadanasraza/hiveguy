@@ -101,3 +101,86 @@ export default function DropDown() {
     </div>
   );
 }
+
+
+
+// import   React from "react"
+// import { useState } from "react"
+// import {
+//   FaChevronUp,
+//   FaHome,
+//   FaCut,
+//   FaTshirt,
+//   FaShoppingBag,
+//   FaMobileAlt,
+//   FaLightbulb,
+//   FaTv,
+//   FaCar,
+//   FaBriefcase,
+//   FaShoePrints,
+//   FaWifi,
+// } from "react-icons/fa"
+// import { FiMenu } from "react-icons/fi"
+
+ 
+
+// const categories = [
+//   { icon: FaHome, label: "Home Garden" },
+//   { icon: FaCut, label: "Hair Extensions & Wigs" },
+//   { icon: FaTshirt, label: "Men's Clothing" },
+//   { icon: FaShoppingBag, label: "Accessories" },
+//   { icon: FaMobileAlt, label: "Consumer Electronics" },
+//   { icon: FaLightbulb, label: "Home Improvement & Lighting" },
+//   { icon: FaTv, label: "Home Appliances" },
+//   { icon: FaCar, label: "Automotive & Motorcycle" },
+//   { icon: FaBriefcase, label: "Luggages & Bags" },
+//   { icon: FaShoePrints, label: "Shoes" },
+//   { icon: FaWifi, label: "Special Occasion Costume" },
+// ]
+
+// export default function CategoryMenu() {
+//   const [isOpen, setIsOpen] = useState(true)
+
+//   return (
+//     <div className="w-full max-w-sm mx-auto bg-gray-200 rounded-4xl shadow-md overflow-hidden">
+//       <div
+//         onClick={() => setIsOpen(!isOpen)}
+//         className=" flex items-center justify-between p-4 cursor-pointer hover:bg-gray-50 transition-colors"
+//       >
+//         <div className="flex items-center gap-2">
+//           <FiMenu className="h-5 w-5 text-gray-500" />
+//           <h2 className="font-medium text-black">Category</h2>
+//         </div>
+//         <FaChevronUp
+//           className={`h-5 w-5 text-gray-500 transition-transform duration-200 ${!isOpen ? "rotate-180" : ""}`}
+//         />
+//       </div>
+//       <div
+//         className={`relative overflow-hidden transition-all duration-200 ease-in-out ${isOpen ? "max-h-[400px]" : "max-h-0"}`}
+//       >
+//         <div
+//           className={`absolute right-0 w-1 bg-pink-500 transition-all duration-200 ${isOpen ? "top-0 bottom-4" : "h-0"}`}
+//         />
+//         <div
+//           className={`overflow-y-auto max-h-[400px] px-4 py-2 transition-all duration-200 ${isOpen ? "opacity-100" : "opacity-0"}`}
+//         >
+//           <div className="space-y-4">
+//             {categories.map((category, index) => {
+//               const Icon = category.icon
+//               return (
+//                 <button
+//                   key={index}
+//                   className="flex items-center gap-3 w-full text-left hover:bg-gray-50 rounded-lg p-1 transition-colors"
+//                 >
+//                   <Icon className="h-5 w-5 text-gray-500 shrink-0" />
+//                   <span className="text-sm">{category.label}</span>
+//                 </button>
+//               )
+//             })}
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   )
+// }
+
