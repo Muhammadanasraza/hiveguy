@@ -2,6 +2,7 @@ import { useState } from "react"
 import Button from "./ui/button"
 import laptop from "../assets/images/laptop.png"
 import airbuds from "../assets/images/airbuds.png"
+import { Link } from "react-router"
 
 const FlashSale = () => {
     const [activeTab, setActiveTab] = useState("Featured")
@@ -10,26 +11,28 @@ const FlashSale = () => {
         // You can customize this function to render different products based on the activeTab
         return [...Array(6)].map((_, i) => (
             <div key={i} className="bg-white rounded-lg p-3 mx-auto shadow-md w-full max-w-[280px] h-[270px]">
-                <img
-                    src={airbuds || "/placeholder.svg"}
-                    alt="Product img"
-                    className="w-full h-[140px] rounded-md object-cover"
-                />
-                <div className="mt-3">
-                    <h3 className="text-[11px] font-light leading-[17px] text-left font-poppins">
-                        NERV Watch 2 Pro - 2.01" Amoled Display SmartWatch
-                    </h3>
-                    <div className="flex items-center mt-1">
-                        <span className="text-[11px] font-medium leading-[17px] text-left font-poppins">GYD</span>
-                        <span className="text-sm font-bold ml-2">2,903</span>
-                        <span className="line-through text-gray-500 ml-2">GYD2,903</span>
-                        <span className="text-red-500 ml-1">-75%</span>
+                <Link to='/addtocart'>
+                    <img
+                        src={airbuds || "/placeholder.svg"}
+                        alt="Product img"
+                        className="w-full h-[140px] rounded-md object-cover"
+                    />
+                    <div className="mt-3">
+                        <h3 className="text-[11px] font-light leading-[17px] text-left font-poppins">
+                            NERV Watch 2 Pro - 2.01" Amoled Display SmartWatch
+                        </h3>
+                        <div className="flex items-center mt-1">
+                            <span className="text-[11px] font-medium leading-[17px] text-left font-poppins">GYD</span>
+                            <span className="text-sm font-bold ml-2">2,903</span>
+                            <span className="line-through text-gray-500 ml-2">GYD2,903</span>
+                            <span className="text-red-500 ml-1">-75%</span>
+                        </div>
+                        <div className="w-full max-w-[180px] h-[7px] bg-gray-200 rounded-lg mt-2">
+                            <div className="bg-blue-600 h-[6px] rounded-lg" style={{ width: "75%" }}></div>
+                        </div>
+                        <p className="text-red-500 text-xs mt-2">100 in Stocks</p>
                     </div>
-                    <div className="w-full max-w-[180px] h-[7px] bg-gray-200 rounded-lg mt-2">
-                        <div className="bg-blue-600 h-[6px] rounded-lg" style={{ width: "75%" }}></div>
-                    </div>
-                    <p className="text-red-500 text-xs mt-2">100 in Stocks</p>
-                </div>
+                </Link>
             </div>
         ))
     }
@@ -87,7 +90,7 @@ const FlashSale = () => {
                     {/* Buttons */}
                     <div className="flex flex-col pb-4 sm:flex-row gap-4 justify-between">
                         <button className="px-6 py-2 bg-gray-200 text-gray-700 text-sm font-medium  rounded-lg hover:bg-gray-300 transition">
-                         Previous deal
+                            Previous deal
                         </button>
                         <Button className="w-full sm:w-auto">Next deal</Button>
                     </div>

@@ -10,6 +10,7 @@ import {
   IoChevronForwardOutline,
 } from "react-icons/io5"
 import { PiHandbagSimple, PiMaskHappy, PiTelevisionSimple } from "react-icons/pi"
+import { Link } from "react-router"
 
 const categories = [
   {
@@ -139,7 +140,10 @@ export default function DropDown() {
               >
                 <div className="flex items-center gap-3">
                   <category.icon className="h-4 w-4 flex-shrink-0 text-gray-500" />
+                  <Link to='/productlisting'>
+                
                   <span>{category.name}</span>
+                </Link>
                 </div>
                 <IoChevronForwardOutline className="h-4 w-4 text-gray-400" />
               </button>
@@ -149,7 +153,7 @@ export default function DropDown() {
       )}
 
       {isOpen && selectedCategory !== null && (
-        <div className="absolute max-sm:left-[135px] left-[203px] mt-2  z-20 w-[700px] max-sm:w-[250px] rounded-lg border border-gray-200 bg-white p-6 shadow-lg">
+        <div className="absolute max-sm:left-[135px] left-[203px] mt-2  z-20 w-[700px] max-sm:w-[200px] rounded-lg border border-gray-200 bg-white p-6 shadow-lg">
           <div className="mb-4">
             <h3 className="text-sm font-semibold text-gray-900">{categories[selectedCategory].name}</h3>
           </div>
@@ -164,7 +168,10 @@ export default function DropDown() {
                   // Handle subcategory selection here
                 }}
               >
+                <Link to='/productlisting'>
+                
                 {subcategory}
+                </Link>
               </button>
             ))}
           </div>

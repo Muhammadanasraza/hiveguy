@@ -35,7 +35,9 @@ const Header = () => {
             className="w-full px-4 py-2 border border-gray-300 rounded-l-md outline-none"
           />
           <button className="bg-yellow-400 text-black px-4 py-2 rounded-r-md font-semibold hover:bg-yellow-300">
-            Search
+          <Link to='/productlisting'>
+          Search
+          </Link>  
           </button>
         </div>
 

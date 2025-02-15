@@ -1,15 +1,16 @@
+"use client"
 
 import { useState } from "react"
 import ProductCard from "../Components/ui/ProductCard"
 import SidebarFilter from "../Components/SidebarFilter"
 import ProductCardList from "../Components/ui/ProductCardList"
-import { IoGrid } from "react-icons/io5";
-import { FaListUl } from "react-icons/fa6";
+import { IoGrid } from "react-icons/io5"
+import { FaListUl } from "react-icons/fa6"
+import Pagination from "../Components/Pagination"
 import watch from '../assets/images/watch.png'
-import Pagination from "../Components/Pagination";
-
 
 const products = [
+    // ... (your product data remains unchanged)
     {
         id: 1,
         title: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
@@ -18,119 +19,26 @@ const products = [
         reviews: 4000,
         image: watch,
         badges: ["Free Shipping", "COD"],
-        description:
-            "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock. Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
+        description: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock. Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
     },
     {
-        id: 1,
+        id: 2,
         title: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
         price: 2903,
         rating: 4,
         reviews: 4000,
         image: watch,
         badges: ["Free Shipping", "COD"],
-        description:
-            "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock. Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
+        description: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock. Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
     },
-    {
-        id: 1,
-        title: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
-        price: 2903,
-        rating: 4,
-        reviews: 4000,
-        image: watch,
-        badges: ["Free Shipping", "COD"],
-        description:
-            "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock. Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
-    },
-    {
-        id: 1,
-        title: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
-        price: 2903,
-        rating: 4,
-        reviews: 4000,
-        image: watch,
-        badges: ["Free Shipping", "COD"],
-        description:
-            "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock. Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
-    },
-    {
-        id: 1,
-        title: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
-        price: 2903,
-        rating: 4,
-        reviews: 4000,
-        image: watch,
-        badges: ["Free Shipping", "COD"],
-        description:
-            "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock. Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
-    },
-    {
-        id: 1,
-        title: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
-        price: 2903,
-        rating: 4,
-        reviews: 4000,
-        image: watch,
-        badges: ["Free Shipping", "COD"],
-        description:
-            "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock. Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
-    },
-    {
-        id: 1,
-        title: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
-        price: 2903,
-        rating: 4,
-        reviews: 4000,
-        image: watch,
-        badges: ["Free Shipping", "COD"],
-        description:
-            "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock. Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
-    },
-    {
-        id: 1,
-        title: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
-        price: 2903,
-        rating: 4,
-        reviews: 4000,
-        image: watch,
-        badges: ["Free Shipping", "COD"],
-        description:
-            "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock. Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
-    },
-    {
-        id: 1,
-        title: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
-        price: 2903,
-        rating: 4,
-        reviews: 4000,
-        image: watch,
-        badges: ["Free Shipping", "COD"],
-        description:
-            "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock. Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
-    },
-    {
-        id: 1,
-        title: "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
-        price: 2903,
-        rating: 4,
-        reviews: 4000,
-        image: watch,
-        badges: ["Free Shipping", "COD"],
-        description:
-            "Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock. Sports Digital Fashion Watch Women Men Square LED Watch Silicone Electronic Watch Women's Watches Clock",
-    },
-    // Add more products as needed
 ]
 
-// pagination?
-
 const ITEMS_PER_PAGE = 2 // Adjust this value based on how many items you want per page
-
 
 export default function ProductListingPage() {
     const [viewMode, setViewMode] = useState("grid")
     const [currentPage, setCurrentPage] = useState(1)
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false)
 
     const totalPages = Math.ceil(products.length / ITEMS_PER_PAGE)
     const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
@@ -141,12 +49,15 @@ export default function ProductListingPage() {
         setCurrentPage(page)
         window.scrollTo(0, 0) // Scroll to top when page changes
     }
-    // pagination?
+
+    const toggleSidebar = () => {
+        setIsSidebarOpen(!isSidebarOpen)
+    }
 
     return (
         <div className="min-h-screen bg-[#FFF6F6]">
             {/* Breadcrumb */}
-            <div className=" border-b w-7xl  mx-auto">
+            <div className="border-b w-full mx-auto">
                 <div className="max-w-7xl mx-auto px-4 py-2">
                     <div className="flex items-center gap-2 text-sm">
                         <a href="/" className="text-blue-600 hover:underline">
@@ -159,17 +70,24 @@ export default function ProductListingPage() {
             </div>
 
             <div className="max-w-7xl mx-auto px-4 py-1">
-                <div className="flex gap-6">
+                <div className="flex flex-col lg:flex-row gap-6">
+                    {/* Sidebar Toggle for Mobile */}
+                    <button className="lg:hidden mb-4 px-4 py-2 bg-gray-200 rounded-md" onClick={toggleSidebar}>
+                        {isSidebarOpen ? "Close Filters" : "Open Filters"}
+                    </button>
+
                     {/* Sidebar */}
-                    <SidebarFilter />
+                    <div className={`lg:w-1/4 ${isSidebarOpen ? "block" : "hidden lg:block"}`}>
+                        <SidebarFilter />
+                    </div>
 
                     {/* Main Content */}
                     <div className="flex-1 py-4">
                         {/* Sort and View Options */}
-                        <div className="flex items-center justify-between mb-6">
-                            <div className="text-sm text-gray-600">Sort By: View: 1,836 items found for "watch gt4 pro"</div>
-                            <div className="flex items-center gap-4">
-                                <select className="text-sm border rounded-md px-2 py-1">
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4">
+                            <div className="text-sm text-gray-600">View: 1,836 items found for "watch gt4 pro"</div>
+                            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                                <select className="text-sm border rounded-md px-2 py-1 w-full sm:w-auto">
                                     <option>Best Match</option>
                                     <option>Price: Low to High</option>
                                     <option>Price: High to Low</option>
@@ -193,7 +111,7 @@ export default function ProductListingPage() {
 
                         {/* Product Grid/List */}
                         {viewMode === "grid" ? (
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                                 {currentProducts.map((product) => (
                                     <ProductCard key={product.id} {...product} />
                                 ))}

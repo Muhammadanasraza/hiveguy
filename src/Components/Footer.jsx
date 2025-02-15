@@ -88,7 +88,7 @@ const Footer = () => {
       </div>
 
       
-<div className="mt-10 max-w-7xl mx-auto pt-4 text-sm text-right px-7">
+<div className="mt-10 max-w-3xl mx-auto pt-4 text-sm max-sm:text-[9px] text-right ">
   <span className="mr-5 ">Payment</span> 
   <Link to="/visa" className="mx-2  ">VISA</Link>  
   <Link to="/mastercard" className="mx-2 ">MASTERCARD</Link>   
